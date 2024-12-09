@@ -3,6 +3,7 @@
 
 int main(int argc, char* argv[])
 {
+    printf("new commit");
 	Game game;
 	if (game.Start())
 	{
