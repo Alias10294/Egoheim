@@ -1,7 +1,7 @@
 #include "../includes/Font.h"
 #include "../includes/Game.h"
 #include <format>
-#include <SDL_image.h>
+#include <SDL2/SDL_image.h>
 
 Font::Font()
 	: m_letterHeight(0), m_spaceBetweenLetters(0)
