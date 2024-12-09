@@ -17,7 +17,7 @@ public:
 	virtual void Render(SDL_Renderer* renderer) = 0;
 	void Update(SDL_Renderer* renderer);
 
-	virtual void End() = 0;
+	virtual void End() = 0; 
 
 	bool IsRunning() const;
 };

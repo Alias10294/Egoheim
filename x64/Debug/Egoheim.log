@@ -1,6 +1,19 @@
 ﻿  Analyse des sources à la recherche des dépendances de module...
-  Game.cpp
+  ImageButton.h
+  Compilation...
+  ImageButton.h
+  Font.cpp
+  Button.cpp
+  ImageButton.cpp
   TextButton.cpp
+  Character.cpp
+  CombatScene.cpp
+  Game.cpp
+  Health.cpp
+  Main.cpp
+  Regeneration.cpp
+  Scene.cpp
+  SceneManager.cpp
+  Stamina.cpp
   StartScene.cpp
-  Génération de code en cours...
   Egoheim.vcxproj -> D:\MesProjetsInfo\Egoheim\x64\Debug\Egoheim.exe

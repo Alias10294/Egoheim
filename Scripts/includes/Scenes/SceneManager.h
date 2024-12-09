@@ -6,7 +6,6 @@
 class SceneManager
 {
 private:
-
 	Scene* scenes[2];
 	int indexCurrentScene;
 
