@@ -34,3 +34,6 @@ Release/
 
 # Configuration locale ou machine
 *.vcxproj.user
+
+# Ignorer les fichiers générés par vcpkg
+vcpkg/

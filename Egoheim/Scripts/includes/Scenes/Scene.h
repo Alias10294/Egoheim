@@ -1,6 +1,6 @@
 #ifndef SCENE_H
 #define SCENE_H
-#include "SDL_image.h"
+#include <SDL2/SDL_image.h>
 #include "../Font.h"
 
 class Scene
