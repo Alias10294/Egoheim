@@ -1,0 +1,36 @@
+# Fichiers et dossiers générés par Visual Studio
+.vs/
+x64/
+Debug/
+Release/
+*.suo
+*.user
+*.pdb
+*.ipch
+*.obj
+*.ilk
+*.idb
+*.opendb
+
+# Logs et fichiers temporaires
+*.log
+*.tmp
+*.cache
+
+# Exécutables
+*.exe
+*.dll
+
+# Fichiers spécifiques à SDL2 et SDL_image
+# Si vous avez placé SDL dans un dossier spécifique comme external-libs :
+/libs/SDL2/
+/libs/SDL2_image/
+
+# Si les DLL de SDL2 et SDL_image sont dans un répertoire spécifique
+*.dll
+
+# Cache des bibliothèques externes
+*.lib
+
+# Configuration locale ou machine
+*.vcxproj.user
