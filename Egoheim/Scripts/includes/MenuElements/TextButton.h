@@ -2,7 +2,7 @@
 #define TEXTBUTTON_H
 
 #include "Button.h"
-#include "SDL.h"
+#include <SDL2/SDL.h>
 
 class TextButton : public Button
 {

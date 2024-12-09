@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <unordered_map>
-#include "SDL.h"
+#include <SDL2/SDL.h>
 
 class Font
 {
