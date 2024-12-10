@@ -17,8 +17,8 @@ Pour installer vcpkg, toujours dans l'invite de commande, clonez ce dépôt à u
 
 Ensuite pour mettre en place vcpkg, utilisez les instructions suivantes:
 - cd vcpkg
-- .\bootstrap-vcpkg.bat 
-<br>Vous pourrez installer dedans les librairies nécessaires au fonctionnement du projet.
+- .\bootstrap-vcpkg.bat<br> 
+Vous pourrez installer dedans les librairies nécessaires au fonctionnement du projet.
 - vcpkg install sdl2
 - vcpkg install sdl2-image
 Ensuite, il suffit de lier vcpkg au projet avec:
