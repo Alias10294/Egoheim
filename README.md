@@ -10,10 +10,10 @@
 ## Instructions d'installation
 
 Depuis votre invite de commande, clonez le dépôt à l'endroit de votre choix avec : <br>
-git clone https://github.com/Alias10294/Egoheim.git
+- git clone https://github.com/Alias10294/Egoheim.git
 
 Pour installer vcpkg, toujours dans l'invite de commande, clonez ce dépôt à un endroit de votre choix (peut-être placé hors du projet pour utilisation dans d'autres projets): <br>
-git clone https://github.com/microsoft/vcpkg.git
+- git clone https://github.com/microsoft/vcpkg.git
 
 Ensuite pour mettre en place vcpkg, utilisez les instructions suivantes:
 - cd vcpkg
