@@ -9,20 +9,20 @@
 
 ## Instructions d'installation
 
-Depuis votre invite de commande, clonez le dépôt à l'endroit de votre choix avec :
+Depuis votre invite de commande, clonez le dépôt à l'endroit de votre choix avec : <br>
 git clone https://github.com/Alias10294/Egoheim.git
 
-Pour installer vcpkg, toujours dans l'invite de commande, clonez ce dépôt à un endroit de votre choix (peut-être placé hors du projet pour utilisation dans d'autres projets):
+Pour installer vcpkg, toujours dans l'invite de commande, clonez ce dépôt à un endroit de votre choix (peut-être placé hors du projet pour utilisation dans d'autres projets): <br>
 git clone https://github.com/microsoft/vcpkg.git
 
 Ensuite pour mettre en place vcpkg, utilisez les instructions suivantes:
-> cd vcpkg
-> .\bootstrap-vcpkg.bat
+- cd vcpkg
+- .\bootstrap-vcpkg.bat
 Vous pourrez installer dedans les librairies nécessaires au fonctionnement du projet.
-> vcpkg install sdl2
-> vcpkg install sdl2-image
+- vcpkg install sdl2
+- vcpkg install sdl2-image
 Ensuite, il suffit de lier vcpkg au projet avec:
-> vcpkg integrate install
+- vcpkg integrate install
 
 Depuis Visual Studio 2022, le projet peut maintenant être ouvert depuis le fichier .sln, et il suffira de compiler et exécuter le code.
 Si une erreur de compilation LNK2019 en rapport avec la fonction main() se présente, il faudra probablement aller dans les propriétés du projet.
