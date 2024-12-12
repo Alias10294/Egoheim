@@ -9,7 +9,7 @@ class StartScene : public Scene
 {
 private:
 	SDL_Texture* m_background;
-	std::vector<Button*> m_startButtons;
+	Button* m_startButtons[4];
 	
 public:
 	StartScene();
