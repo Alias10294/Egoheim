@@ -32,34 +32,34 @@ void StartScene::Start(SDL_Renderer* renderer)
 	{
 		std::cerr << "Error on button background loading." << IMG_GetError() << std::endl;
 	}
-	m_startButtons.emplace_back(new TextButton(
+	m_startButtons[0] = new TextButton(
 		buttonBackground, 
 		"play", 
 		STARTBUTTON_X, 
 		STARTBUTTON_Y_PLAY, 
 		STARTBUTTON_W,
-		STARTBUTTON_H)); // "Play" button
-	m_startButtons.emplace_back(new TextButton(
+		STARTBUTTON_H); // "Play" button
+	m_startButtons[1] = new TextButton(
 		buttonBackground, 
 		"codex", 
 		STARTBUTTON_X,
 		STARTBUTTON_Y_CODEX,
 		STARTBUTTON_W,
-		STARTBUTTON_H)); // "Codex" button
-	m_startButtons.emplace_back(new TextButton(
+		STARTBUTTON_H); // "Codex" button
+	m_startButtons[2] = new TextButton(
 		buttonBackground,
 		"options",
 		STARTBUTTON_X,
 		STARTBUTTON_Y_OPTIONS,
 		STARTBUTTON_W,
-		STARTBUTTON_H)); // "Options" button
-	m_startButtons.emplace_back(new TextButton(
+		STARTBUTTON_H); // "Options" button
+	m_startButtons[3] = new TextButton(
 		buttonBackground,
 		"quit",
 		STARTBUTTON_X,
 		STARTBUTTON_Y_QUIT,
 		STARTBUTTON_W,
-		STARTBUTTON_H)); // "Quit" button
+		STARTBUTTON_H); // "Quit" button
 
 	// Start the scene
 	m_isRunning = true;
@@ -83,8 +83,6 @@ void StartScene::Render(SDL_Renderer* renderer)
 void StartScene::End()
 {
 	SDL_DestroyTexture(m_background);
-	size_t size = m_startButtons.size();
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < 4; i++)
 		delete m_startButtons[i];
-	std::vector<Button*>().swap(m_startButtons);
 }
