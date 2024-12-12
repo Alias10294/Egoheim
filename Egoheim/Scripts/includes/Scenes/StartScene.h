@@ -1,7 +1,6 @@
 #ifndef STARTSCENE_H 
 #define STARTSCENE_H
 
-#include <vector>
 #include "Scene.h"
 #include "../MenuElements/Button.h"
 
