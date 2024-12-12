@@ -4,57 +4,54 @@
 #include <SDL2/SDL_image.h>
 
 Font::Font()
-	: m_letterHeight(0), m_spaceBetweenLetters(0)
+	: m_letterTextures(nullptr), m_spaceBetweenLetters(0)
 { }
 
-const int Font::GetLetterHeight() const
+const int Font::GetLetterHeight()
 {
-	return m_letterHeight;
+	return m_letterRects['0'].h;
 }
 const int Font::GetLetterWidth(char c)
 {
-	return m_letterWidths[c];
+	return m_letterRects[c].w;
 }
 const int Font::GetLetterSpace() const
-{
+{ 
 	return m_spaceBetweenLetters;
 }
 
 const void Font::Start(
 	SDL_Renderer* renderer, 
 	const char* letters, 
+	const int letterWidths[],  
 	const int spaceBetweenLetters,  
 	const char* folderPath)
 {
-	std::pair<int, int> windowCoeffs = Game::getWindowCoeffs();
+	m_windowCoeffs = Game::getWindowCoeffs();
+	m_letterTextures = IMG_LoadTexture(renderer, std::format("Assets/Fonts/{}.png", folderPath).c_str());
 
-	size_t nbLetters = 0;
-	while (letters[nbLetters++] != '\0'); --nbLetters;
-	for (int i = 0; i < nbLetters; i++)
+	int i = -1;
+	int x = 0;
+	int h;
+	SDL_QueryTexture(m_letterTextures, NULL, NULL, NULL, &h);
+	while (letters[++i] != '\0')
 	{
-		m_letterTextures[letters[i]] = IMG_LoadTexture(
-			renderer, 
-			std::format(
-				"Assets/Fonts/{}/{}_{}.png", 
-				folderPath, 
-				folderPath, 
-				letters[i]).c_str());
-		SDL_QueryTexture(m_letterTextures[letters[i]], NULL, NULL, &m_letterWidths[letters[i]], &m_letterHeight);
-		m_letterWidths[letters[i]] *= windowCoeffs.first;
+		m_letterRects[letters[i]] = SDL_Rect(x, 0, letterWidths[i], h);
+		x += letterWidths[i];
 	}
-	m_letterHeight *= windowCoeffs.second;
-	m_spaceBetweenLetters = spaceBetweenLetters * windowCoeffs.first;
+	m_spaceBetweenLetters = spaceBetweenLetters;
 }
 const void Font::RenderText(SDL_Renderer* renderer, const char* letters, SDL_Rect* rect)
 {
-	SDL_Rect tempRect = { rect->x, rect->y, m_letterWidths[0], m_letterHeight };
-	size_t nbLetters = 0;
-	while (letters[nbLetters++] != '\0'); --nbLetters;
-	for (int i = 0; i < nbLetters; i++)
+	int i = -1;
+	SDL_Rect dstRect = *rect;
+	while (letters[++i] != '\0')
 	{
-		tempRect.w = m_letterWidths[letters[i]];
-		if (m_letterTextures[letters[i]]) 
-			SDL_RenderCopy(renderer, m_letterTextures[letters[i]], NULL, &tempRect);
-		tempRect.x += m_letterWidths[letters[i]] + m_spaceBetweenLetters;
+		SDL_Rect srcRect = m_letterRects[letters[i]];
+		
+		dstRect.w = srcRect.w * m_windowCoeffs.first;
+		dstRect.h = srcRect.h * m_windowCoeffs.second;
+		SDL_RenderCopy(renderer, m_letterTextures, &srcRect, &dstRect);
+		dstRect.x += dstRect.w + m_spaceBetweenLetters * m_windowCoeffs.first;
 	}
 }
