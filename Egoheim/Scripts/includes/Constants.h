@@ -8,6 +8,7 @@ constexpr int WINDOW_HEIGHT = 270;
 
 // Fonts
 constexpr const char* BIGFONT_LETTERS = "0123456789abcdefghijklmnopqrstuvwxyz";
+constexpr const int BIGFONT_WIDTHS[] = {9,5,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,5,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9};
 constexpr const char* SMALLFONT_LETTERS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz,;:!?./";
 constexpr int BIGFONT_SPACE = 2;
 constexpr int SMALLFONT_SPACE = 1;
