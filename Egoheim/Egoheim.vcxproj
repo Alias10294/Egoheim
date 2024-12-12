@@ -52,42 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Fonts\BigFont.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_0.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_1.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_2.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_3.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_4.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_5.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_6.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_7.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_8.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_9.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_a.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_b.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_c.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_d.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_e.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_f.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_g.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_h.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_i.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_j.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_k.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_l.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_m.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_n.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_o.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_p.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_q.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_r.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_s.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_t.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_u.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_v.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_w.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_x.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_y.png" />
-    <Image Include="Assets\Fonts\BigFont\BigFont_z.png" />
     <Image Include="Assets\StartScene\Bilskin\BackgroundBilskin.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </Image>

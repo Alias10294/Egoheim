@@ -65,6 +65,7 @@ bool Game::Start()
 	m_bigFont.Start(
 		m_renderer, 
 		BIGFONT_LETTERS, 
+		BIGFONT_WIDTHS,
 		BIGFONT_SPACE, 
 		"BigFont");
 
