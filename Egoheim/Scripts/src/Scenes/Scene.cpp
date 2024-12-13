@@ -1,10 +1,5 @@
 #include "../../includes/Scenes/Scene.h"
 
-void Scene::Stop()
-{
-	m_isRunning = false;
-}
-
 void Scene::Update(SDL_Renderer* renderer)
 {
 	SDL_Event event;
