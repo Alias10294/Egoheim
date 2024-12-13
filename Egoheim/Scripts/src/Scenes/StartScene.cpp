@@ -59,18 +59,14 @@ void StartScene::Start(SDL_Renderer* renderer)
 		STARTBUTTON_X,
 		STARTBUTTON_Y_QUIT,
 		STARTBUTTON_W,
-		STARTBUTTON_H,
-		[this]() { this->End(); }); // "Quit" button
+		STARTBUTTON_H); // "Quit" button
 
 	// Start the scene
 	m_isRunning = true;
 }
 
 void StartScene::HandleEvents(const SDL_Event& event)
-{
-	for (auto& button : m_startButtons)
-		button->HandleEvents(event);
-}
+{ }
 void StartScene::Render(SDL_Renderer* renderer)
 {
 	SDL_RenderClear(renderer);

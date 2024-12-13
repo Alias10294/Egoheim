@@ -8,8 +8,6 @@ class Scene
 protected:
 	bool m_isRunning = false;
 
-	void Stop();
-
 public:
 	virtual ~Scene() = default;
 
