@@ -1,7 +1,6 @@
 #ifndef STARTSCENE_H 
 #define STARTSCENE_H
 
-#include <vector>
 #include "Scene.h"
 #include "../MenuElements/Button.h"
 
@@ -9,7 +8,7 @@ class StartScene : public Scene
 {
 private:
 	SDL_Texture* m_background;
-	std::vector<Button*> m_startButtons;
+	Button* m_startButtons[4];
 	
 public:
 	StartScene();
