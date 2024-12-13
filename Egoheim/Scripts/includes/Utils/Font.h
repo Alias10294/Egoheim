@@ -4,11 +4,12 @@
 #include <iostream>
 #include <unordered_map>
 #include <SDL2/SDL.h>
+#include "Structs.h"
 
 class Font
 {
 private:
-	std::pair<int, int> m_windowCoeffs;
+	WindowCoeffs m_windowCoeffs;
 	std::unordered_map<char, SDL_Rect> m_letterRects;
 	SDL_Texture* m_letterTextures;
 	int m_spaceBetweenLetters;

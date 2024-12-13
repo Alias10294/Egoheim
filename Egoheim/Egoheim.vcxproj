@@ -33,6 +33,7 @@
     <ClInclude Include="Scripts\includes\Scenes\StartScene.h" />
     <ClInclude Include="Scripts\includes\Constants.h" />
     <ClInclude Include="Scripts\includes\Game.h" />
+    <ClInclude Include="Scripts\includes\Utils\Structs.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Scripts\includes\Utils\ImageButton.h" />

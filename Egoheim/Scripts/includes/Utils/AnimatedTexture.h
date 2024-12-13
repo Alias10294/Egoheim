@@ -4,11 +4,12 @@
 #include <iostream>
 #include <SDL2/SDL.h>
 #include <vector>
+#include "Structs.h"
 
 class AnimatedTexture
 {
 private:
-	std::pair<int, int> m_windowCoeffs;
+	WindowCoeffs m_windowCoeffs;
 	SDL_Texture* m_textures;
 	SDL_Rect m_currentRect;
 	std::vector<float> m_frameTimes;

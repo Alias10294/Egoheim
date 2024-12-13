@@ -5,13 +5,14 @@
 #include <SDL2/SDL_image.h>
 #include "Scenes/SceneManager.h"
 #include "Utils/Font.h"
+#include "Utils/Structs.h"
 
 class Game
 {
 private:
 	SDL_Window* m_window;
 	SDL_Renderer* m_renderer;
-	static std::pair<int, int> m_windowCoeffs;
+	static WindowCoeffs m_windowCoeffs;
 
 public:
 	static Font s_bigFont;
@@ -19,7 +20,7 @@ public:
 	Game();
 	~Game();
 
-	static std::pair<int, int> getWindowCoeffs();
+	static WindowCoeffs GetWindowCoeffs();
 
 	bool Start();
 	void Run();

@@ -5,12 +5,12 @@ ImageButton::ImageButton(SDL_Texture* texture, SDL_Texture* image, int x, int y,
 	: Button(texture, x, y, w, h), m_image(image)
 {
 	SDL_QueryTexture(image, NULL, NULL, &m_imageRect.w, &m_imageRect.h);
-	std::pair<int, int> windowCoeffs = Game::getWindowCoeffs();
+	WindowCoeffs windowCoeffs = Game::GetWindowCoeffs();
 
-	m_imageRect.x = ((x + w / 2) - (m_imageRect.w / 2)) * windowCoeffs.first;
-	m_imageRect.y = ((y + h / 2) - (m_imageRect.h / 2)) * windowCoeffs.second;
-	m_imageRect.w *= windowCoeffs.first;
-	m_imageRect.h *= windowCoeffs.second;
+	m_imageRect.x = ((x + w / 2) - (m_imageRect.w / 2)) * windowCoeffs.w;
+	m_imageRect.y = ((y + h / 2) - (m_imageRect.h / 2)) * windowCoeffs.h;
+	m_imageRect.w *= windowCoeffs.w;
+	m_imageRect.h *= windowCoeffs.h;
 }
 ImageButton::~ImageButton()
 {

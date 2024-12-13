@@ -4,7 +4,7 @@
 AnimatedTexture::AnimatedTexture(SDL_Texture* textures, const int nbFrames, const float frameTimes[])
 	: m_textures(textures), m_currentRect{ 0, 0, 0, 0 }
 {
-	m_windowCoeffs = Game::getWindowCoeffs();
+	m_windowCoeffs = Game::GetWindowCoeffs();
 
 	SDL_QueryTexture(textures, NULL, NULL, &m_currentRect.w, &m_currentRect.h);
 	m_currentRect.w /= nbFrames;
@@ -23,8 +23,8 @@ void AnimatedTexture::Render(SDL_Renderer* renderer, SDL_Rect* dstRect)
 {
 	if (m_textures)
 	{
-		dstRect->w = m_currentRect.w * m_windowCoeffs.first;
-		dstRect->h = m_currentRect.h * m_windowCoeffs.second;
+		dstRect->w = m_currentRect.w * m_windowCoeffs.w;
+		dstRect->h = m_currentRect.h * m_windowCoeffs.h;
 		SDL_RenderCopy(renderer, m_textures, &m_currentRect, dstRect);
 	}
 }

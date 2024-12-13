@@ -6,15 +6,15 @@
 TextButton::TextButton(SDL_Texture* texture, const char* text, int x, int y, int w, int h, std::function<void()> action)
 	: Button(texture, x, y, w, h, action), m_text(text), m_textRect{ NULL, NULL, NULL, NULL }
 {
-	std::pair<int, int> windowCoeffs = Game::getWindowCoeffs();
+	WindowCoeffs windowCoeffs = Game::GetWindowCoeffs();
 
-	m_textRect.y = ((y + h / 2) - (Game::s_bigFont.GetLetterHeight() / 2)) * windowCoeffs.second + windowCoeffs.second;
+	m_textRect.y = ((y + h / 2) - (Game::s_bigFont.GetLetterHeight() / 2)) * windowCoeffs.h + windowCoeffs.h;
 
 	int wText = Game::s_bigFont.GetLetterWidth(m_text[0]);
 	int i = 0;
 	while (m_text[++i] != '\0')
 		wText += Game::s_bigFont.GetLetterSpace() + Game::s_bigFont.GetLetterWidth(m_text[i]);
-	m_textRect.x = ((x + w / 2) - (wText / 2)) * windowCoeffs.first - windowCoeffs.first;
+	m_textRect.x = ((x + w / 2) - (wText / 2)) * windowCoeffs.w - windowCoeffs.w;
 }
 TextButton::~TextButton()
 {
