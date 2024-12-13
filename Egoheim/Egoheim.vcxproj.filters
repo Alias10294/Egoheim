@@ -21,7 +21,7 @@
     <ClInclude Include="Scripts\includes\Game.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Scripts\includes\Font.h">
+    <ClInclude Include="Scripts\includes\Utils\Font.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Scripts\includes\CombatElements\CharacterElements\Character.h">
@@ -36,7 +36,7 @@
     <ClInclude Include="Scripts\includes\CombatElements\CharacterElements\Stamina.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Scripts\includes\MenuElements\TextButton.h">
+    <ClInclude Include="Scripts\includes\Utils\TextButton.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Scripts\includes\Scenes\CombatScene.h">
@@ -51,10 +51,10 @@
     <ClInclude Include="Scripts\includes\Scenes\StartScene.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Scripts\includes\MenuElements\Button.h">
+    <ClInclude Include="Scripts\includes\Utils\Button.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Scripts\includes\AnimatedTexture.h">
+    <ClInclude Include="Scripts\includes\Utils\AnimatedTexture.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
@@ -86,25 +86,25 @@
     <ClCompile Include="Scripts\src\Scenes\SceneManager.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Scripts\src\MenuElements\TextButton.cpp">
+    <ClCompile Include="Scripts\src\Utils\TextButton.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Scripts\src\Scenes\Scene.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Scripts\src\Font.cpp">
+    <ClCompile Include="Scripts\src\Utils\Font.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Scripts\includes\MenuElements\ImageButton.h">
+    <ClCompile Include="Scripts\includes\Utils\ImageButton.h">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Scripts\src\MenuElements\Button.cpp">
+    <ClCompile Include="Scripts\src\Utils\Button.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Scripts\src\MenuElements\ImageButton.cpp">
+    <ClCompile Include="Scripts\src\Utils\ImageButton.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Scripts\src\AnimatedTexture.cpp">
+    <ClCompile Include="Scripts\src\Utils\AnimatedTexture.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>

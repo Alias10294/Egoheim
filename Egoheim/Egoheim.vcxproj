@@ -19,14 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Scripts\includes\AnimatedTexture.h" />
-    <ClInclude Include="Scripts\includes\Font.h" />
+    <ClInclude Include="Scripts\includes\Utils\AnimatedTexture.h" />
+    <ClInclude Include="Scripts\includes\Utils\Font.h" />
     <ClInclude Include="Scripts\includes\CombatElements\CharacterElements\Character.h" />
     <ClInclude Include="Scripts\includes\CombatElements\CharacterElements\Health.h" />
     <ClInclude Include="Scripts\includes\CombatElements\CharacterElements\Regeneration.h" />
     <ClInclude Include="Scripts\includes\CombatElements\CharacterElements\Stamina.h" />
-    <ClInclude Include="Scripts\includes\MenuElements\Button.h" />
-    <ClInclude Include="Scripts\includes\MenuElements\TextButton.h" />
+    <ClInclude Include="Scripts\includes\Utils\Button.h" />
+    <ClInclude Include="Scripts\includes\Utils\TextButton.h" />
     <ClInclude Include="Scripts\includes\Scenes\CombatScene.h" />
     <ClInclude Include="Scripts\includes\Scenes\Scene.h" />
     <ClInclude Include="Scripts\includes\Scenes\SceneManager.h" />
@@ -35,12 +35,12 @@
     <ClInclude Include="Scripts\includes\Game.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Scripts\includes\MenuElements\ImageButton.h" />
-    <ClCompile Include="Scripts\src\AnimatedTexture.cpp" />
-    <ClCompile Include="Scripts\src\Font.cpp" />
-    <ClCompile Include="Scripts\src\MenuElements\Button.cpp" />
-    <ClCompile Include="Scripts\src\MenuElements\ImageButton.cpp" />
-    <ClCompile Include="Scripts\src\MenuElements\TextButton.cpp" />
+    <ClCompile Include="Scripts\includes\Utils\ImageButton.h" />
+    <ClCompile Include="Scripts\src\Utils\AnimatedTexture.cpp" />
+    <ClCompile Include="Scripts\src\Utils\Font.cpp" />
+    <ClCompile Include="Scripts\src\Utils\Button.cpp" />
+    <ClCompile Include="Scripts\src\Utils\ImageButton.cpp" />
+    <ClCompile Include="Scripts\src\Utils\TextButton.cpp" />
     <ClCompile Include="Scripts\src\CombatElements\CharacterElements\Character.cpp" />
     <ClCompile Include="Scripts\src\Scenes\CombatScene.cpp" />
     <ClCompile Include="Scripts\src\Game.cpp" />

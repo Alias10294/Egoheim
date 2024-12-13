@@ -1,4 +1,4 @@
-#include "../../includes/MenuElements/ImageButton.h"
+#include "../../includes/Utils/ImageButton.h"
 #include "../../includes/Game.h"
 
 ImageButton::ImageButton(SDL_Texture* texture, SDL_Texture* image, int x, int y, int w, int h)

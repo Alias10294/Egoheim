@@ -1,5 +1,5 @@
-#include "../includes/AnimatedTexture.h"
-#include "../includes/Game.h"
+#include "../../includes/Utils/AnimatedTexture.h"
+#include "../../includes/Game.h"
 
 AnimatedTexture::AnimatedTexture(SDL_Texture* textures, const int nbFrames, const float frameTimes[])
 	: m_textures(textures), m_currentRect{ 0, 0, 0, 0 }

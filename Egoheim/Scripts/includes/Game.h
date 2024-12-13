@@ -4,7 +4,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include "Scenes/SceneManager.h"
-#include "Font.h"
+#include "Utils/Font.h"
 
 class Game
 {

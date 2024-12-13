@@ -1,5 +1,5 @@
-#include "../includes/Font.h"
-#include "../includes/Game.h"
+#include "../../includes/Utils/Font.h"
+#include "../../includes/Game.h"
 #include <format>
 #include <SDL2/SDL_image.h>
 

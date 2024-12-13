@@ -2,7 +2,7 @@
 #define STARTSCENE_H
 
 #include "Scene.h"
-#include "../MenuElements/Button.h"
+#include "../Utils/Button.h"
 
 class StartScene : public Scene
 {

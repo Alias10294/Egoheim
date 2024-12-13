@@ -1,6 +1,6 @@
 #include "../../includes/Scenes/StartScene.h"
 #include "../../includes/Constants.h"
-#include "../../includes/MenuElements/TextButton.h"
+#include "../../includes/Utils/TextButton.h"
 #include <random>
 
 StartScene::StartScene()
