@@ -6,6 +6,8 @@ constexpr const char* GAME_TITLE = "Egoheim";
 constexpr int WINDOW_WIDTH = 480;
 constexpr int WINDOW_HEIGHT = 270;
 
+constexpr int FPS_LIMIT = 60;
+
 // Fonts
 constexpr const char* BIGFONT_LETTERS = "0123456789abcdefghijklmnopqrstuvwxyz";
 constexpr const int BIGFONT_WIDTHS[] = {9,5,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,5,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9};

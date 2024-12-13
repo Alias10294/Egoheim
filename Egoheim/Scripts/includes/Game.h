@@ -14,7 +14,7 @@ private:
 	static std::pair<int, int> m_windowCoeffs;
 
 public:
-	static Font m_bigFont;
+	static Font s_bigFont;
 
 	Game();
 	~Game();

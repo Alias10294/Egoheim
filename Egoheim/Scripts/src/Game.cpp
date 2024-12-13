@@ -3,7 +3,7 @@
 #include "../includes/Constants.h"
 
 std::pair<int, int> Game::m_windowCoeffs = { 0, 0 };
-Font Game::m_bigFont = Font();
+Font Game::s_bigFont = Font();
 
 Game::Game()
 	: m_window(nullptr), m_renderer(nullptr)
@@ -62,7 +62,7 @@ bool Game::Start()
 		return false;
 	}
 
-	m_bigFont.Start(
+	s_bigFont.Start(
 		m_renderer, 
 		BIGFONT_LETTERS, 
 		BIGFONT_WIDTHS,

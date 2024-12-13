@@ -1,7 +1,9 @@
 #include "../../includes/Scenes/Scene.h"
+#include "../../includes/Constants.h"
 
 void Scene::Run(SDL_Renderer* renderer)
 {
+
 	SDL_Event event;
 	while (SDL_PollEvent(&event))
 	{

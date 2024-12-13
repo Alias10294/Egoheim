@@ -8,12 +8,12 @@ TextButton::TextButton(SDL_Texture* texture, const char* text, int x, int y, int
 {
 	std::pair<int, int> windowCoeffs = Game::getWindowCoeffs();
 
-	m_textRect.y = ((y + h / 2) - (Game::m_bigFont.GetLetterHeight() / 2)) * windowCoeffs.second + windowCoeffs.second;
+	m_textRect.y = ((y + h / 2) - (Game::s_bigFont.GetLetterHeight() / 2)) * windowCoeffs.second + windowCoeffs.second;
 
-	int wText = Game::m_bigFont.GetLetterWidth(m_text[0]);
+	int wText = Game::s_bigFont.GetLetterWidth(m_text[0]);
 	int i = 0;
 	while (m_text[++i] != '\0')
-		wText += Game::m_bigFont.GetLetterSpace() + Game::m_bigFont.GetLetterWidth(m_text[i]);
+		wText += Game::s_bigFont.GetLetterSpace() + Game::s_bigFont.GetLetterWidth(m_text[i]);
 	m_textRect.x = ((x + w / 2) - (wText / 2)) * windowCoeffs.first - windowCoeffs.first;
 }
 TextButton::~TextButton()
@@ -25,5 +25,5 @@ void TextButton::Render(SDL_Renderer* renderer)
 {
 	if (m_texture)
 		SDL_RenderCopy(renderer, m_texture, NULL, &m_rect);
-	Game::m_bigFont.RenderText(renderer, m_text, &m_textRect);
+	Game::s_bigFont.RenderText(renderer, m_text, &m_textRect);
 }
