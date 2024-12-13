@@ -17,7 +17,7 @@ void SceneManager::RunScene(SDL_Renderer* renderer)
 {
 	scenes[indexCurrentScene]->Start(renderer);
 	while (scenes[indexCurrentScene]->IsRunning())
-		scenes[indexCurrentScene]->Update(renderer);
+		scenes[indexCurrentScene]->Run(renderer);
 	scenes[indexCurrentScene]->End();
 }
 void SceneManager::SetCurrentScene(int index)

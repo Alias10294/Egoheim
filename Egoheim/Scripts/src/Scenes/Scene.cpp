@@ -1,6 +1,6 @@
 #include "../../includes/Scenes/Scene.h"
 
-void Scene::Update(SDL_Renderer* renderer)
+void Scene::Run(SDL_Renderer* renderer)
 {
 	SDL_Event event;
 	while (SDL_PollEvent(&event))
@@ -8,6 +8,7 @@ void Scene::Update(SDL_Renderer* renderer)
 		if (event.type == SDL_QUIT)
 			m_isRunning = false;
 		HandleEvents(event);
+		Update();
 	}
 	Render(renderer);
 }

@@ -11,6 +11,8 @@ void CombatScene::Start(SDL_Renderer* renderer)
 
 void CombatScene::HandleEvents(const SDL_Event& event)
 { }
+void CombatScene::Update()
+{ }
 void CombatScene::Render(SDL_Renderer* renderer)
 { }
 

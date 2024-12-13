@@ -17,6 +17,7 @@ public:
 	void Start(SDL_Renderer* renderer) override;
 
 	void HandleEvents(const SDL_Event& event) override;
+	void Update() override;
 	void Render(SDL_Renderer* renderer) override;
 	void End() override;
 };

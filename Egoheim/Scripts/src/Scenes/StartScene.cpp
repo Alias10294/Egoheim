@@ -71,6 +71,10 @@ void StartScene::HandleEvents(const SDL_Event& event)
 	for (auto& button : m_startButtons)
 		button->HandleEvents(event);
 }
+void StartScene::Update()
+{
+
+}
 void StartScene::Render(SDL_Renderer* renderer)
 {
 	SDL_RenderClear(renderer);

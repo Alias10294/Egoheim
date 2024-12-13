@@ -1,24 +1,26 @@
 #ifndef ANIMATEDTEXTURE_H
 #define ANIMATEDTEXTURE_H
 
+#include <iostream>
 #include <SDL2/SDL.h>
 #include <vector>
 
 class AnimatedTexture
 {
 private:
+	std::pair<int, int> m_windowCoeffs;
 	SDL_Texture* m_textures;
-	SDL_Rect m_rect;
-	int m_nbFrames;
+	SDL_Rect m_currentRect;
 	std::vector<float> m_frameTimes;
+	std::pair<float, int> m_currentFrameTime;
 
 
 public:
-	AnimatedTexture(SDL_Texture* textures, SDL_Rect rect, int nbFrames, float frameTimes[]);
+	AnimatedTexture(SDL_Texture* textures, const int nbFrames, const float frameTimes[]);
 	~AnimatedTexture();
 
 	void UpdateFrame(float deltaTime);
-	void Render(SDL_Renderer* renderer);
+	void Render(SDL_Renderer* renderer, SDL_Rect* dstRect);
 };
 
 #endif ANIMATEDTEXTURE_H

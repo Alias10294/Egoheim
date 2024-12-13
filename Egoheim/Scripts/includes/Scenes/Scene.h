@@ -14,8 +14,9 @@ public:
 	virtual void Start(SDL_Renderer* renderer) = 0;
 
 	virtual void HandleEvents(const SDL_Event& event) = 0;
+	virtual void Update() = 0;
 	virtual void Render(SDL_Renderer* renderer) = 0;
-	void Update(SDL_Renderer* renderer);
+	void Run(SDL_Renderer* renderer);
 
 	virtual void End() = 0;
 
