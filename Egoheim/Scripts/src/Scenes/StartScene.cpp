@@ -71,7 +71,7 @@ void StartScene::HandleEvents(const SDL_Event& event)
 	for (auto& button : m_startButtons)
 		button->HandleEvents(event);
 }
-void StartScene::Update()
+void StartScene::Update(const float deltaTime)
 {
 
 }
