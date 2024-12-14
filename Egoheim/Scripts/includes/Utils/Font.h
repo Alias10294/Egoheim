@@ -9,7 +9,6 @@
 class Font
 {
 private:
-	WindowCoeffs m_windowCoeffs;
 	std::unordered_map<char, SDL_Rect> m_letterRects;
 	SDL_Texture* m_letterTextures;
 	int m_spaceBetweenLetters;

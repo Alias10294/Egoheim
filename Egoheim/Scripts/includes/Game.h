@@ -12,7 +12,7 @@ class Game
 private:
 	SDL_Window* m_window;
 	SDL_Renderer* m_renderer;
-	static WindowCoeffs m_windowCoeffs;
+	static WindowCoeffs s_windowCoeffs;
 
 public:
 	static Font s_bigFont;
@@ -20,7 +20,7 @@ public:
 	Game();
 	~Game();
 
-	static WindowCoeffs GetWindowCoeffs();
+	static const WindowCoeffs& GetWindowCoeffs();
 
 	bool Start();
 	void Run();

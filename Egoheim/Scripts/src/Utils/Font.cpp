@@ -27,7 +27,6 @@ const void Font::Start(
 	const int spaceBetweenLetters,  
 	const char* folderPath)
 {
-	m_windowCoeffs = Game::GetWindowCoeffs();
 	m_letterTextures = IMG_LoadTexture(renderer, std::format("Assets/Fonts/{}.png", folderPath).c_str());
 
 	int i = -1;
@@ -43,15 +42,16 @@ const void Font::Start(
 }
 const void Font::RenderText(SDL_Renderer* renderer, const char* letters, SDL_Rect* rect)
 {
+	const WindowCoeffs& windowCoeffs = Game::GetWindowCoeffs();
 	int i = -1;
 	SDL_Rect dstRect = *rect;
 	while (letters[++i] != '\0')
 	{
 		SDL_Rect srcRect = m_letterRects[letters[i]];
 		
-		dstRect.w = srcRect.w * m_windowCoeffs.w;
-		dstRect.h = srcRect.h * m_windowCoeffs.h;
+		dstRect.w = srcRect.w * windowCoeffs.w;
+		dstRect.h = srcRect.h * windowCoeffs.h;
 		SDL_RenderCopy(renderer, m_letterTextures, &srcRect, &dstRect);
-		dstRect.x += dstRect.w + m_spaceBetweenLetters * m_windowCoeffs.w;
+		dstRect.x += dstRect.w + m_spaceBetweenLetters * windowCoeffs.w;
 	}
 }

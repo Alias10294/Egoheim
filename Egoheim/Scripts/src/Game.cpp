@@ -2,7 +2,7 @@
 #include "../includes/Game.h"
 #include "../includes/Utils/Constants.h"
 
-WindowCoeffs Game::m_windowCoeffs = { 0, 0 };
+WindowCoeffs Game::s_windowCoeffs = { 0, 0 };
 Font Game::s_bigFont = Font();
 
 Game::Game()
@@ -11,9 +11,9 @@ Game::Game()
 Game::~Game()
 { }
 
-WindowCoeffs Game::GetWindowCoeffs()
+const WindowCoeffs& Game::GetWindowCoeffs()
 {
-	return m_windowCoeffs;
+	return s_windowCoeffs;
 }
 
 bool Game::Start()
@@ -45,9 +45,9 @@ bool Game::Start()
 		SDL_Quit();
 		return false;
 	}
-	SDL_GetWindowSize(m_window, &m_windowCoeffs.w, &m_windowCoeffs.h);
-	m_windowCoeffs.w /= WINDOW_WIDTH;
-	m_windowCoeffs.h /= WINDOW_HEIGHT;
+	SDL_GetWindowSize(m_window, &s_windowCoeffs.w, &s_windowCoeffs.h);
+	s_windowCoeffs.w /= WINDOW_WIDTH;
+	s_windowCoeffs.h /= WINDOW_HEIGHT;
 
 	m_renderer = SDL_CreateRenderer(
 		m_window,
