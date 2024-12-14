@@ -2,7 +2,7 @@
 #define SCENE_H
 #include <SDL2/SDL_image.h>
 #include "../Utils/Font.h"
-#include "../Constants.h"
+#include "../Utils/Constants.h"
 
 class Scene
 {
