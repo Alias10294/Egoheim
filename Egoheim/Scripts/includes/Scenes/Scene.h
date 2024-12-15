@@ -8,7 +8,7 @@ class Scene
 {
 private:
 	const float m_frameDelayMs = 1000.0f / FPS_LIMIT;
-	int m_accumulatedMs = 0;
+	uint32_t m_accumulatedMs = 0;
 
 protected:
 	bool m_isRunning = false;

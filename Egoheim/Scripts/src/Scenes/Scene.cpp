@@ -3,7 +3,7 @@
 
 void Scene::Run(SDL_Renderer* renderer)
 {
-	int frameStartMs = SDL_GetTicks();
+	uint32_t frameStartMs = SDL_GetTicks();
 
 	// Event handling
 	SDL_Event event;
@@ -22,7 +22,7 @@ void Scene::Run(SDL_Renderer* renderer)
 		m_accumulatedMs -= m_frameDelayMs;
 	}
 
-	int frameEndMs = SDL_GetTicks();
+	uint32_t frameEndMs = SDL_GetTicks();
 	m_accumulatedMs += frameEndMs - frameStartMs;
 }
 
