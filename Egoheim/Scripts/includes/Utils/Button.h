@@ -13,7 +13,7 @@ protected:
 
 public:
 	Button(SDL_Texture* texture, int x, int y, int w, int h, std::function<void()> action = nullptr);
-	~Button();
+	virtual ~Button();
 
 	virtual void HandleEvents(const SDL_Event& event);
 	virtual void Render(SDL_Renderer* renderer);

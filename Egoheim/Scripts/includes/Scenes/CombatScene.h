@@ -14,12 +14,13 @@ public:
 	CombatScene(std::shared_ptr<Character> character1, std::shared_ptr<Character> character2);
 	~CombatScene();
 
-	void Start(SDL_Renderer* renderer) override;
+	virtual void Start(SDL_Renderer* renderer) override;
 
-	void HandleEvents(const SDL_Event& event) override;
-	void Update(const float deltaTime) override;
-	void Render(SDL_Renderer* renderer) override;
-	void End() override;
+	virtual void HandleEvents(const SDL_Event& event) override;
+	virtual void Update(const float deltaTime) override;
+	virtual void Render(SDL_Renderer* renderer) override;
+
+	virtual void End() override;
 };
 
 #endif COMBATSCENE_H

@@ -14,7 +14,7 @@ public:
 	TextButton(SDL_Texture* texture, const char* text, int x, int y, int w, int h, std::function<void()> action = nullptr);
 	~TextButton();
 
-	void Render(SDL_Renderer* renderer) override;
+	virtual void Render(SDL_Renderer* renderer) override;
 };
 
 #endif TEXTBUTTON_H

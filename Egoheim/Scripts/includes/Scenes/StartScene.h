@@ -22,13 +22,13 @@ public:
 	StartScene();
 	~StartScene() override;
 
-	void Start(SDL_Renderer* renderer) override;
+	virtual void Start(SDL_Renderer* renderer) override;
 
-	void HandleEvents(const SDL_Event& event) override;
-	void Update(const float deltaTime) override;
-	void Render(SDL_Renderer* renderer) override;
+	virtual void HandleEvents(const SDL_Event& event) override;
+	virtual void Update(const float deltaTime) override;
+	virtual void Render(SDL_Renderer* renderer) override;
 
-	void End() override;
+	virtual void End() override;
 };
 
 #endif STARTSCENE_H

@@ -14,7 +14,7 @@ public:
 	ImageButton(SDL_Texture* texture, SDL_Texture* image, int x, int y, int w, int h);
 	~ImageButton(); 
 
-	void Render(SDL_Renderer* renderer) override;
+	virtual void Render(SDL_Renderer* renderer) override;
 };
 
 #endif IMAGEBUTTON_H
