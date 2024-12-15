@@ -2,7 +2,8 @@
 #define SCENE_H
 #include <SDL2/SDL_image.h>
 #include "../Utils/Font.h"
-#include "../Utils/Constants.h"
+
+constexpr int FPS_LIMIT = 60;
 
 class Scene
 {

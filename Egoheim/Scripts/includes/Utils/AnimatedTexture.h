@@ -5,7 +5,6 @@
 #include <SDL2/SDL.h>
 #include <vector>
 #include "Structs.h"
-#include "Constants.h"
 
 class AnimatedTexture
 {

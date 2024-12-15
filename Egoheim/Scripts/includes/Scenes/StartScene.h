@@ -4,6 +4,14 @@
 #include "Scene.h"
 #include "../Utils/Button.h"
 
+constexpr int STARTBUTTON_X = 8;
+constexpr int STARTBUTTON_W = 88;
+constexpr int STARTBUTTON_H = 17;
+constexpr int STARTBUTTON_Y_PLAY = 72;
+constexpr int STARTBUTTON_Y_CODEX = 103;
+constexpr int STARTBUTTON_Y_OPTIONS = 134;
+constexpr int STARTBUTTON_Y_QUIT = 165;
+
 class StartScene : public Scene
 {
 private:

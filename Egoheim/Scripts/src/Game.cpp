@@ -1,6 +1,5 @@
 #include <iostream>
 #include "../includes/Game.h"
-#include "../includes/Utils/Constants.h"
 
 WindowCoeffs Game::s_windowCoeffs = { 0, 0 };
 Font Game::s_bigFont = Font();

@@ -7,6 +7,11 @@
 #include "Utils/Font.h"
 #include "Utils/Structs.h"
 
+constexpr const char* GAME_TITLE = "Egoheim";
+
+constexpr int WINDOW_WIDTH = 480;
+constexpr int WINDOW_HEIGHT = 270;
+
 class Game
 {
 private:

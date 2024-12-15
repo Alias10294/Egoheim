@@ -31,7 +31,6 @@
     <ClInclude Include="Scripts\includes\Scenes\Scene.h" />
     <ClInclude Include="Scripts\includes\Scenes\SceneManager.h" />
     <ClInclude Include="Scripts\includes\Scenes\StartScene.h" />
-    <ClInclude Include="Scripts\includes\Utils\Constants.h" />
     <ClInclude Include="Scripts\includes\Game.h" />
     <ClInclude Include="Scripts\includes\Utils\Structs.h" />
   </ItemGroup>
