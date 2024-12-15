@@ -20,7 +20,7 @@ public:
 	Game();
 	~Game();
 
-	static const WindowCoeffs& GetWindowCoeffs();
+	static const WindowCoeffs GetWindowCoeffs();
 
 	bool Start();
 	void Run();

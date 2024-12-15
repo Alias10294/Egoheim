@@ -5,7 +5,7 @@
 Button::Button(SDL_Texture* texture, int x, int y, int w, int h, std::function<void()> action)
 	: m_texture(texture), m_action(action)
 {
-	const WindowCoeffs& windowCoeffs = Game::GetWindowCoeffs();
+	const WindowCoeffs windowCoeffs = Game::GetWindowCoeffs();
 	m_rect = SDL_Rect
 	{
 		windowCoeffs.w * x,

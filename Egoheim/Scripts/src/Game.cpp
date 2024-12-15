@@ -11,7 +11,7 @@ Game::Game()
 Game::~Game()
 { }
 
-const WindowCoeffs& Game::GetWindowCoeffs()
+const WindowCoeffs Game::GetWindowCoeffs()
 {
 	return s_windowCoeffs;
 }

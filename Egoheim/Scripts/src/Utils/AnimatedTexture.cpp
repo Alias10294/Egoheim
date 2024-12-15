@@ -29,7 +29,7 @@ void AnimatedTexture::Update(float deltaTime)
 }
 void AnimatedTexture::Render(SDL_Renderer* renderer, SDL_Rect* dstRect)
 {
-	const WindowCoeffs& windowCoeffs = Game::GetWindowCoeffs();
+	const WindowCoeffs windowCoeffs = Game::GetWindowCoeffs();
 
 	if (m_textures)
 	{
