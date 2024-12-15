@@ -2,6 +2,7 @@
 #include "../../includes/Utils/Constants.h"
 #include "../../includes/Utils/TextButton.h"
 #include <random>
+#include <format>
 
 StartScene::StartScene()
 	: m_background(nullptr)
@@ -12,22 +13,31 @@ StartScene::~StartScene()
 void StartScene::Start(SDL_Renderer* renderer)
 { 
 	// Choose a random menu style
-	const char* backgrounds[] = { "Assets/StartScene/Bilskin/BackgroundBilskin.png" };
-	const char* buttonBackgrounds[] = { "Assets/StartScene/Bilskin/ButtonBackgroundBilskin.png" };
+	const char* backgroundStyles[] = { "Bilskin" };
 
 	std::mt19937 rng(std::random_device{}());
-	std::uniform_int_distribution<int> distribution(0, (sizeof(backgrounds) / sizeof(backgrounds[0]) - 1));
-	int iStyle = distribution(rng);
+	std::uniform_int_distribution<int> distribution(0, (sizeof(backgroundStyles) / sizeof(backgroundStyles[0]) - 1));
+	const char* backgroundStyle = backgroundStyles[distribution(rng)];
 
 	// Add the background image
-	m_background = IMG_LoadTexture(renderer, backgrounds[iStyle]);
+	m_background = IMG_LoadTexture(
+		renderer, 
+		std::format(
+			"Assets/StartScene/{}/Background{}.png", 
+			backgroundStyle, 
+			backgroundStyle).c_str());
 	if (!m_background)
 	{
 		std::cerr << "Error on background loading." << IMG_GetError() << std::endl;
 	}
 
 	// Add the buttons
-	SDL_Texture* buttonBackground = IMG_LoadTexture(renderer, buttonBackgrounds[iStyle]);
+	SDL_Texture* buttonBackground = IMG_LoadTexture(
+		renderer, 
+		std::format(
+			"Assets/StartScene/{}/ButtonBackground{}.png", 
+			backgroundStyle, 
+			backgroundStyle).c_str());
 	if (!buttonBackground)
 	{
 		std::cerr << "Error on button background loading." << IMG_GetError() << std::endl;
