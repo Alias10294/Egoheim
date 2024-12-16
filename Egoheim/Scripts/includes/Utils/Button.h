@@ -11,6 +11,7 @@ protected:
 	SDL_Rect m_rect;
 	AnimatedTexture m_texture;
 	std::function<void()> m_action;
+	bool m_isHovered = false;
 
 public:
 	Button(SDL_Texture* textures, AnimatedTextureInfo textureInfo, int x, int y, int w, int h, std::function<void()> action = nullptr);

@@ -24,24 +24,25 @@ void AnimatedTexture::StartAnimation()
 }
 void AnimatedTexture::Update(const float deltaTime)
 {
-	m_currentFrameInfo.time += deltaTime;
-
-	while (m_currentFrameInfo.time >= m_frameTimes[m_currentFrameInfo.i])
+	if (m_updateRythm.increment != 0)
 	{
-		if (m_updateRythm.increment != 0) 
+		m_currentFrameInfo.time += deltaTime;
+
+		while (m_currentFrameInfo.time >= m_frameTimes[m_currentFrameInfo.i])
 		{
 			m_currentFrameInfo.i = (m_currentFrameInfo.i + m_updateRythm.increment) % (int)m_frameTimes.size();
 			m_currentFrameInfo.time -= m_frameTimes[m_currentFrameInfo.i];
 			m_currentRect.x = m_currentRect.w * m_currentFrameInfo.i;
-		}
-		if (!m_updateRythm.autonomous)
-		{
-			if (m_updateRythm.increment > 0 && m_currentFrameInfo.i == m_frameTimes.size())
-				m_updateRythm.increment = 0;
-			if (m_updateRythm.increment < 0 && m_currentFrameInfo.i == 0)
-				m_updateRythm.increment = 0;
+			if (!m_updateRythm.autonomous)
+			{
+				if (m_updateRythm.increment > 0 && m_currentFrameInfo.i == m_frameTimes.size() - 1)
+					m_updateRythm.increment = 0;
+				if (m_updateRythm.increment < 0 && m_currentFrameInfo.i == 0)
+					m_updateRythm.increment = 0;
+			}
 		}
 	}
+	
 }
 void AnimatedTexture::Render(SDL_Renderer* renderer, SDL_Rect* rect)
 {

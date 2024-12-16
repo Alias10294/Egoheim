@@ -19,16 +19,29 @@ Button::~Button()
 
 void Button::HandleEvents(const SDL_Event& event)
 {
-	if (event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT)
+	int x;
+	int y;
+	SDL_GetMouseState(&x, &y);
+	bool mouseOnButton = (
+		m_rect.x <= x && x < m_rect.x + m_rect.w &&
+		m_rect.y <= y && y < m_rect.y + m_rect.h);
+	if (mouseOnButton)
 	{
-		int x;
-		int y;
-		SDL_GetMouseState(&x, &y);
-		bool isPressed = (
-			m_rect.x <= x && x <= m_rect.x + m_rect.w &&
-			m_rect.y <= y && y <= m_rect.y + m_rect.h );
-		if (isPressed && m_action)
+		if (event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT && m_action)
 			m_action();
+		if (!m_isHovered)
+		{
+			m_texture.StartAnimation();
+		}
+		m_isHovered = true;
+	}
+	else
+	{
+		if (m_isHovered)
+		{
+			m_texture.StartAnimation();
+		}
+		m_isHovered = false;
 	}
 }
 void Button::Update(const float deltaTime)

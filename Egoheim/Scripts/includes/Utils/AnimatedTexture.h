@@ -1,10 +1,9 @@
 #ifndef ANIMATEDTEXTURE_H
 #define ANIMATEDTEXTURE_H
 
-#include <iostream>
 #include <SDL2/SDL.h>
+#include <iostream>
 #include <vector>
-#include "WindowCoeffs.h"
 #include "AnimatedTextureInfo.h"
 
 class AnimatedTexture

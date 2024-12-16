@@ -13,7 +13,7 @@ constexpr int STARTBUTTON_Y_OPTIONS = 132;
 constexpr int STARTBUTTON_Y_QUIT = 163;
 
 constexpr int STARTBUTTON_NBFRAMES = 3;
-constexpr float STARTBUTTON_FRAMETIMES[] = { 0.1f, 0.1f, 0.1f };
+constexpr float STARTBUTTON_FRAMETIMES[] = { 0.03f, 0.03f, 0.03f };
 
 class StartScene : public Scene
 {
