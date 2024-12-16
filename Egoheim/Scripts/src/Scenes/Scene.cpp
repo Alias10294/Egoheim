@@ -19,7 +19,7 @@ void Scene::Run(SDL_Renderer* renderer)
 	{
 		Update(m_frameDelayMs / 1000.0f);
 		Render(renderer);
-		m_accumulatedMs -= m_frameDelayMs;
+		m_accumulatedMs -= (float)m_frameDelayMs;
 	}
 
 	const uint32_t frameEndMs = SDL_GetTicks();

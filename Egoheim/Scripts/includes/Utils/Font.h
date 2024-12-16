@@ -4,7 +4,6 @@
 #include <iostream>
 #include <unordered_map>
 #include <SDL2/SDL.h>
-#include "Structs.h"
 
 constexpr const char* BIGFONT_LETTERS = "0123456789abcdefghijklmnopqrstuvwxyz";
 constexpr const int BIGFONT_WIDTHS[] = { 9,5,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,5,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9 };

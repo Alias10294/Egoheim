@@ -4,10 +4,15 @@
 #include <format>
 
 StartScene::StartScene()
-	: m_background(nullptr)
+	: m_background(nullptr), m_buttonBackground(nullptr), m_startButtons()
 { }
 StartScene::~StartScene()
-{ }
+{
+	SDL_DestroyTexture(m_background);
+	for (int i = 0; i < 4; i++)
+		delete m_startButtons[i];
+	SDL_DestroyTexture(m_buttonBackground);
+}
 
 void StartScene::Start(SDL_Renderer* renderer)
 { 
@@ -31,39 +36,45 @@ void StartScene::Start(SDL_Renderer* renderer)
 	}
 
 	// Add the buttons
-	SDL_Texture* buttonBackground = IMG_LoadTexture(
-		renderer, 
+	m_buttonBackground = IMG_LoadTexture(
+		renderer,
 		std::format(
-			"Assets/StartScene/{}/ButtonBackground{}.png", 
-			backgroundStyle, 
+			"Assets/StartScene/{}/ButtonBackground{}.png",
+			backgroundStyle,
 			backgroundStyle).c_str());
-	if (!buttonBackground)
+	if (!m_buttonBackground)
 	{
-		std::cerr << "Error on button background loading." << IMG_GetError() << std::endl;
+		std::cerr << "Error on background loading." << IMG_GetError() << std::endl;
 	}
+	AnimatedTextureInfo startButtonTextureInfo = { STARTBUTTON_NBFRAMES, STARTBUTTON_FRAMETIMES, true};
+
 	m_startButtons[0] = new TextButton(
-		buttonBackground, 
+		m_buttonBackground,
+		startButtonTextureInfo, 
 		"play", 
 		STARTBUTTON_X, 
 		STARTBUTTON_Y_PLAY, 
 		STARTBUTTON_W,
 		STARTBUTTON_H); // "Play" button
 	m_startButtons[1] = new TextButton(
-		buttonBackground, 
+		m_buttonBackground,
+		startButtonTextureInfo, 
 		"codex", 
 		STARTBUTTON_X,
 		STARTBUTTON_Y_CODEX,
 		STARTBUTTON_W,
 		STARTBUTTON_H); // "Codex" button
 	m_startButtons[2] = new TextButton(
-		buttonBackground,
+		m_buttonBackground,
+		startButtonTextureInfo, 
 		"options",
 		STARTBUTTON_X,
 		STARTBUTTON_Y_OPTIONS,
 		STARTBUTTON_W,
 		STARTBUTTON_H); // "Options" button
 	m_startButtons[3] = new TextButton(
-		buttonBackground,
+		m_buttonBackground,
+		startButtonTextureInfo, 
 		"quit",
 		STARTBUTTON_X,
 		STARTBUTTON_Y_QUIT,
@@ -82,7 +93,8 @@ void StartScene::HandleEvents(const SDL_Event& event)
 }
 void StartScene::Update(const float deltaTime)
 {
-
+	for (auto& button : m_startButtons)
+		button->Update(deltaTime);
 }
 void StartScene::Render(SDL_Renderer* renderer)
 {
@@ -99,7 +111,5 @@ void StartScene::Render(SDL_Renderer* renderer)
 
 void StartScene::End()
 {
-	SDL_DestroyTexture(m_background);
-	for (int i = 0; i < 4; i++)
-		delete m_startButtons[i];
+	m_isRunning = false;
 }

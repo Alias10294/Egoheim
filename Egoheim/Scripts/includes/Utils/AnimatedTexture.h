@@ -4,7 +4,8 @@
 #include <iostream>
 #include <SDL2/SDL.h>
 #include <vector>
-#include "Structs.h"
+#include "WindowCoeffs.h"
+#include "AnimatedTextureInfo.h"
 
 class AnimatedTexture
 {
@@ -16,12 +17,12 @@ private:
 	struct UpdateRythm { bool autonomous; int increment; } m_updateRythm;
 
 public:
-	AnimatedTexture(SDL_Texture* textures, const int nbFrames, const float frameTimes[], bool autonomy = true);
+	AnimatedTexture(SDL_Texture* textures, AnimatedTextureInfo textureInfo);
 	~AnimatedTexture();
 
 	void StartAnimation();
-	void Update(float deltaTime);
-	void Render(SDL_Renderer* renderer, SDL_Rect* dstRect);
+	void Update(const float deltaTime);
+	void Render(SDL_Renderer* renderer, SDL_Rect* rect);
 };
 
 #endif ANIMATEDTEXTURE_H

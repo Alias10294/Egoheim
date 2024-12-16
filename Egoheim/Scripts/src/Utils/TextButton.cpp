@@ -2,8 +2,8 @@
 #include "../../includes/Game.h"
 
 
-TextButton::TextButton(SDL_Texture* texture, const char* text, int x, int y, int w, int h, std::function<void()> action)
-	: Button(texture, x, y, w, h, action), m_text(text), m_textRect{ NULL, NULL, NULL, NULL }
+TextButton::TextButton(SDL_Texture* textures, AnimatedTextureInfo textureInfo, const char* text, int x, int y, int w, int h, std::function<void()> action)
+	: Button(textures, textureInfo, x, y, w, h, action), m_text(text), m_textRect{ NULL, NULL, NULL, NULL }
 {
 	const WindowCoeffs windowCoeffs = Game::GetWindowCoeffs();
 
@@ -16,13 +16,10 @@ TextButton::TextButton(SDL_Texture* texture, const char* text, int x, int y, int
 	m_textRect.x = ((x + w / 2) - (wText / 2)) * windowCoeffs.w - windowCoeffs.w;
 }
 TextButton::~TextButton()
-{
-	delete m_text;
-}
+{ }
 
 void TextButton::Render(SDL_Renderer* renderer)
 {
-	if (m_texture)
-		SDL_RenderCopy(renderer, m_texture, NULL, &m_rect);
+	m_texture.Render(renderer, &m_rect);
 	Game::s_bigFont.RenderText(renderer, m_text, &m_textRect);
 }

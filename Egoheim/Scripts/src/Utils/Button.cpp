@@ -2,8 +2,8 @@
 #include "../../includes/Game.h"
 #include <iostream>
 
-Button::Button(SDL_Texture* texture, int x, int y, int w, int h, std::function<void()> action)
-	: m_texture(texture), m_action(action)
+Button::Button(SDL_Texture* textures, AnimatedTextureInfo textureInfo, int x, int y, int w, int h, std::function<void()> action)
+	: m_texture(textures, textureInfo), m_action(action)
 {
 	const WindowCoeffs windowCoeffs = Game::GetWindowCoeffs();
 	m_rect = SDL_Rect
@@ -15,9 +15,7 @@ Button::Button(SDL_Texture* texture, int x, int y, int w, int h, std::function<v
 	};
 }
 Button::~Button()
-{
-	SDL_DestroyTexture(m_texture);
-}
+{ }
 
 void Button::HandleEvents(const SDL_Event& event)
 {
@@ -33,8 +31,11 @@ void Button::HandleEvents(const SDL_Event& event)
 			m_action();
 	}
 }
+void Button::Update(const float deltaTime)
+{
+	m_texture.Update(deltaTime);
+}
 void Button::Render(SDL_Renderer* renderer)
 {
-	if (m_texture)
-		SDL_RenderCopy(renderer, m_texture, NULL, &m_rect);
+	m_texture.Render(renderer, &m_rect);
 }

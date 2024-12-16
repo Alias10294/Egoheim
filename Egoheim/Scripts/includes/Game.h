@@ -5,7 +5,7 @@
 #include <SDL2/SDL_image.h>
 #include "Scenes/SceneManager.h"
 #include "Utils/Font.h"
-#include "Utils/Structs.h"
+#include "Utils/WindowCoeffs.h"
 
 constexpr const char* GAME_TITLE = "Egoheim";
 

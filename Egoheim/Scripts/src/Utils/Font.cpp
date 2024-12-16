@@ -27,7 +27,11 @@ const void Font::Start(
 	const int spaceBetweenLetters,  
 	const char* folderPath)
 {
-	m_letterTextures = IMG_LoadTexture(renderer, std::format("Assets/Fonts/{}.png", folderPath).c_str());
+	m_letterTextures = IMG_LoadTexture(
+		renderer, 
+		std::format(
+			"Assets/Fonts/{}.png", 
+			folderPath).c_str());
 
 	int i = -1;
 	int x = 0;

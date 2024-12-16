@@ -3,19 +3,21 @@
 
 #include <SDL2/SDL.h>
 #include <functional>
+#include "AnimatedTexture.h"
 
 class Button
 {
 protected:
 	SDL_Rect m_rect;
-	SDL_Texture* m_texture;
+	AnimatedTexture m_texture;
 	std::function<void()> m_action;
 
 public:
-	Button(SDL_Texture* texture, int x, int y, int w, int h, std::function<void()> action = nullptr);
+	Button(SDL_Texture* textures, AnimatedTextureInfo textureInfo, int x, int y, int w, int h, std::function<void()> action = nullptr);
 	virtual ~Button();
 
-	virtual void HandleEvents(const SDL_Event& event);
+	void HandleEvents(const SDL_Event& event);
+	void Update(const float deltaTime);
 	virtual void Render(SDL_Renderer* renderer);
 };
 

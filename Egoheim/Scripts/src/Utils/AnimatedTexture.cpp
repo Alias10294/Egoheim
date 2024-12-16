@@ -1,20 +1,20 @@
 #include "../../includes/Utils/AnimatedTexture.h"
 #include "../../includes/Game.h"
 
-AnimatedTexture::AnimatedTexture(SDL_Texture* textures, const int nbFrames, const float frameTimes[], bool autonomy)
-	: m_textures(textures), m_currentRect{ 0, 0, 0, 0 }, m_currentFrameInfo { 0, 0.0 }
+AnimatedTexture::AnimatedTexture(SDL_Texture* textures, AnimatedTextureInfo textureInfo)
+	: m_textures(textures), m_currentFrameInfo{ 0, 0.0f }
 {
 	SDL_QueryTexture(textures, NULL, NULL, &m_currentRect.w, &m_currentRect.h);
-	m_currentRect.w /= nbFrames;
+	m_currentRect.w /= textureInfo.nbFrames;
 
-	for (int i = 0; i < nbFrames; i++)
-		m_frameTimes.emplace_back(frameTimes[i]);
+	for (int i = 0; i < textureInfo.nbFrames; i++)
+		m_frameTimes.emplace_back(textureInfo.frameTimes[i]);
 
-	m_updateRythm = { autonomy, autonomy ? 1 : 0 };
+	m_updateRythm = { textureInfo.autonomy, textureInfo.autonomy ? 1 : 0 };
 }
 AnimatedTexture::~AnimatedTexture()
 {
-	SDL_DestroyTexture(m_textures);
+	std::vector<float>().swap(m_frameTimes);
 }
 
 void AnimatedTexture::StartAnimation()
@@ -22,7 +22,7 @@ void AnimatedTexture::StartAnimation()
 	if (!m_updateRythm.autonomous)
 		m_updateRythm.increment = m_currentFrameInfo.i == 0 ? 1 : -1;
 }
-void AnimatedTexture::Update(float deltaTime)
+void AnimatedTexture::Update(const float deltaTime)
 {
 	m_currentFrameInfo.time += deltaTime;
 
@@ -30,7 +30,7 @@ void AnimatedTexture::Update(float deltaTime)
 	{
 		if (m_updateRythm.increment != 0) 
 		{
-			m_currentFrameInfo.i = (m_currentFrameInfo.i + m_updateRythm.increment) % m_frameTimes.size();
+			m_currentFrameInfo.i = (m_currentFrameInfo.i + m_updateRythm.increment) % (int)m_frameTimes.size();
 			m_currentFrameInfo.time -= m_frameTimes[m_currentFrameInfo.i];
 			m_currentRect.x = m_currentRect.w * m_currentFrameInfo.i;
 		}
@@ -43,14 +43,14 @@ void AnimatedTexture::Update(float deltaTime)
 		}
 	}
 }
-void AnimatedTexture::Render(SDL_Renderer* renderer, SDL_Rect* dstRect)
+void AnimatedTexture::Render(SDL_Renderer* renderer, SDL_Rect* rect)
 {
-	const WindowCoeffs windowCoeffs = Game::GetWindowCoeffs();
-
 	if (m_textures)
 	{
-		dstRect->w = m_currentRect.w * windowCoeffs.w;
-		dstRect->h = m_currentRect.h * windowCoeffs.h;
-		SDL_RenderCopy(renderer, m_textures, &m_currentRect, dstRect);
+		const WindowCoeffs windowCoeffs = Game::GetWindowCoeffs();
+		SDL_Rect dstRect = *rect;
+		dstRect.w = m_currentRect.w * windowCoeffs.w;
+		dstRect.h = m_currentRect.h * windowCoeffs.h;
+		SDL_RenderCopy(renderer, m_textures, &m_currentRect, &dstRect);
 	}
 }
