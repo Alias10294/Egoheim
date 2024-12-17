@@ -1,4 +1,4 @@
-# Fichiers et dossiers générés par Visual Studio
+# Visual Studio files
 .vs/
 x64/
 Debug/
@@ -12,28 +12,28 @@ Release/
 *.idb
 *.opendb
 
-# Logs et fichiers temporaires
+# Logs and temp files
 *.log
 *.tmp
 *.cache
 
-# Exécutables
+# Executables
 *.exe
 *.dll
 
-# Fichiers spécifiques à SDL2 et SDL_image
-# Si vous avez placé SDL dans un dossier spécifique comme external-libs :
+# SDL2 and SDL_image files
 /libs/SDL2/
 /libs/SDL2_image/
 
-# Si les DLL de SDL2 et SDL_image sont dans un répertoire spécifique
-*.dll
-
-# Cache des bibliothèques externes
+# External libraries cache
 *.lib
 
-# Configuration locale ou machine
+# Local config files
 *.vcxproj.user
 
-# Ignorer les fichiers générés par vcpkg
+# Vcpkg files
 vcpkg/
+
+# Ignore asset aseprite files
+*.aseprite
+*.ase
