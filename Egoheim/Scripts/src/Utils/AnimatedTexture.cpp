@@ -1,50 +1,50 @@
 #include "../../includes/Utils/AnimatedTexture.h"
 #include "../../includes/Game.h"
 
-AnimatedTexture::AnimatedTexture(SDL_Texture* textures, AnimatedTextureInfo textureInfo)
-	: m_textures(textures), m_currentFrameInfo{ 0, 0.0f }
+AnimatedTexture::AnimatedTexture(SDL_Texture* textures, AnimatedTextureInfo textureInfo, int direction)
+	: m_textures(textures), m_increment(direction), m_currentFrameInfo{ 0, 0.0f }
 {
 	SDL_QueryTexture(textures, NULL, NULL, &m_currentRect.w, &m_currentRect.h);
 	m_currentRect.w /= textureInfo.nbFrames;
 
 	for (int i = 0; i < textureInfo.nbFrames; i++)
 		m_frameTimes.emplace_back(textureInfo.frameTimes[i]);
-
-	m_updateRythm = { textureInfo.autonomy, textureInfo.autonomy ? 1 : 0 };
 }
 AnimatedTexture::~AnimatedTexture()
 {
 	std::vector<float>().swap(m_frameTimes);
 }
 
-void AnimatedTexture::React()
+void AnimatedTexture::Update(const float deltaTime)
 {
-	if (!m_updateRythm.autonomous)
-		m_updateRythm.increment = m_currentFrameInfo.i == 0 ? 1 : -1;
-}
-void AnimatedTexture::Update(const float deltaTime, const bool desiredState)
-{
-	if (m_updateRythm.increment != 0)
-	{
-		m_currentFrameInfo.time += deltaTime;
+	m_currentFrameInfo.time += deltaTime;
 
-		while (m_currentFrameInfo.time >= m_frameTimes[m_currentFrameInfo.i])
-		{
-			m_currentFrameInfo.i = (m_currentFrameInfo.i + m_updateRythm.increment) % (int)m_frameTimes.size();
-			m_currentFrameInfo.time -= m_frameTimes[m_currentFrameInfo.i];
-			m_currentRect.x = m_currentRect.w * m_currentFrameInfo.i;
-			if (!m_updateRythm.autonomous)
-			{
-				if (desiredState && m_currentFrameInfo.i < m_frameTimes.size() - 1)
-					m_updateRythm.increment = 1;
-				if (!desiredState && m_currentFrameInfo.i > 0)
-					m_updateRythm.increment = -1;
-				if (m_updateRythm.increment > 0 && m_currentFrameInfo.i == m_frameTimes.size() - 1)
-					m_updateRythm.increment = 0;
-				if (m_updateRythm.increment < 0 && m_currentFrameInfo.i == 0)
-					m_updateRythm.increment = 0;
-			}
-		}
+	while (m_currentFrameInfo.time >= m_frameTimes[m_currentFrameInfo.i])
+	{
+		m_currentFrameInfo.i = (m_currentFrameInfo.i + m_increment) % (int)m_frameTimes.size();
+		m_currentFrameInfo.time -= m_frameTimes[m_currentFrameInfo.i];
+		m_currentRect.x = m_currentRect.w * m_currentFrameInfo.i;
+	}
+}
+void AnimatedTexture::UpdateReact(const float deltaTime, const bool state)
+{
+	if (state && m_currentFrameInfo.i < m_frameTimes.size() - 1)
+		m_increment = 1;
+	if (!state && m_currentFrameInfo.i > 0)
+		m_increment = -1;
+
+	m_currentFrameInfo.time += deltaTime;
+
+	while (m_currentFrameInfo.time >= m_frameTimes[m_currentFrameInfo.i])
+	{
+		m_currentFrameInfo.i = (m_currentFrameInfo.i + m_increment) % (int)m_frameTimes.size();
+		m_currentFrameInfo.time -= m_frameTimes[m_currentFrameInfo.i];
+		m_currentRect.x = m_currentRect.w * m_currentFrameInfo.i;
+
+		if (m_increment > 0 && m_currentFrameInfo.i == m_frameTimes.size() - 1)
+			m_increment = 0;
+		if (m_increment < 0 && m_currentFrameInfo.i == 0)
+			m_increment = 0;
 	}
 }
 

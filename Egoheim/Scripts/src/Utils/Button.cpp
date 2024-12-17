@@ -29,24 +29,16 @@ void Button::HandleEvents(const SDL_Event& event)
 	{
 		if (event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT && m_action)
 			m_action();
-		if (!m_isHovered)
-		{
-			m_texture.React();
-		}
 		m_isHovered = true;
 	}
 	else
 	{
-		if (m_isHovered)
-		{
-			m_texture.React();
-		}
 		m_isHovered = false;
 	}
 }
 void Button::Update(const float deltaTime)
 {
-	m_texture.Update(deltaTime, m_isHovered);
+	m_texture.UpdateReact(deltaTime, m_isHovered);
 }
 void Button::Render(SDL_Renderer* renderer)
 {

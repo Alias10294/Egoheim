@@ -13,14 +13,14 @@ private:
 	SDL_Rect m_currentRect;
 	std::vector<float> m_frameTimes;
 	struct CurrentFrameInfo { int i; float time; } m_currentFrameInfo;
-	struct UpdateRythm { bool autonomous; int increment; } m_updateRythm;
+	int m_increment;
 
 public:
-	AnimatedTexture(SDL_Texture* textures, AnimatedTextureInfo textureInfo);
-	~AnimatedTexture();
+	AnimatedTexture(SDL_Texture* textures, AnimatedTextureInfo textureInfo, int direction = 1);
+	virtual ~AnimatedTexture();
 
-	void React();
-	void Update(const float deltaTime, const bool desiredState = true);
+	void Update(const float deltaTime);
+	void UpdateReact(const float deltaTime, const bool state);
 	void Render(SDL_Renderer* renderer, SDL_Rect* rect);
 };
 
