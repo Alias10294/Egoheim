@@ -17,12 +17,12 @@ AnimatedTexture::~AnimatedTexture()
 	std::vector<float>().swap(m_frameTimes);
 }
 
-void AnimatedTexture::StartAnimation()
+void AnimatedTexture::React()
 {
 	if (!m_updateRythm.autonomous)
 		m_updateRythm.increment = m_currentFrameInfo.i == 0 ? 1 : -1;
 }
-void AnimatedTexture::Update(const float deltaTime)
+void AnimatedTexture::Update(const float deltaTime, const bool desiredState)
 {
 	if (m_updateRythm.increment != 0)
 	{
@@ -35,6 +35,10 @@ void AnimatedTexture::Update(const float deltaTime)
 			m_currentRect.x = m_currentRect.w * m_currentFrameInfo.i;
 			if (!m_updateRythm.autonomous)
 			{
+				if (desiredState && m_currentFrameInfo.i < m_frameTimes.size() - 1)
+					m_updateRythm.increment = 1;
+				if (!desiredState && m_currentFrameInfo.i > 0)
+					m_updateRythm.increment = -1;
 				if (m_updateRythm.increment > 0 && m_currentFrameInfo.i == m_frameTimes.size() - 1)
 					m_updateRythm.increment = 0;
 				if (m_updateRythm.increment < 0 && m_currentFrameInfo.i == 0)
@@ -42,8 +46,8 @@ void AnimatedTexture::Update(const float deltaTime)
 			}
 		}
 	}
-	
 }
+
 void AnimatedTexture::Render(SDL_Renderer* renderer, SDL_Rect* rect)
 {
 	if (m_textures)

@@ -19,8 +19,8 @@ public:
 	AnimatedTexture(SDL_Texture* textures, AnimatedTextureInfo textureInfo);
 	~AnimatedTexture();
 
-	void StartAnimation();
-	void Update(const float deltaTime);
+	void React();
+	void Update(const float deltaTime, const bool desiredState = true);
 	void Render(SDL_Renderer* renderer, SDL_Rect* rect);
 };
 

@@ -31,7 +31,7 @@ void Button::HandleEvents(const SDL_Event& event)
 			m_action();
 		if (!m_isHovered)
 		{
-			m_texture.StartAnimation();
+			m_texture.React();
 		}
 		m_isHovered = true;
 	}
@@ -39,14 +39,14 @@ void Button::HandleEvents(const SDL_Event& event)
 	{
 		if (m_isHovered)
 		{
-			m_texture.StartAnimation();
+			m_texture.React();
 		}
 		m_isHovered = false;
 	}
 }
 void Button::Update(const float deltaTime)
 {
-	m_texture.Update(deltaTime);
+	m_texture.Update(deltaTime, m_isHovered);
 }
 void Button::Render(SDL_Renderer* renderer)
 {
