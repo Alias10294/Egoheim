@@ -10,14 +10,14 @@ class Button
 protected:
 	SDL_Rect m_rect;
 	AnimatedTexture m_texture;
-	std::function<void()> m_action;
+	std::function<void()> m_onClick;
 	bool m_isHovered = false;
 
 public:
-	Button(SDL_Texture* textures, AnimatedTextureInfo textureInfo, int x, int y, int w, int h, std::function<void()> action = nullptr);
+	Button(SDL_Texture* textures, AnimatedTextureInfo textureInfo, SDL_Rect rect, std::function<void()> onClick = nullptr);
 	virtual ~Button();
 
-	void HandleEvents(const SDL_Event& event);
+	void HandleEvents(const SDL_Event& event); 
 	void Update(const float deltaTime);
 	virtual void Render(SDL_Renderer* renderer);
 };

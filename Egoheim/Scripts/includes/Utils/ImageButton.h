@@ -11,7 +11,12 @@ private:
 	SDL_Rect m_imageRect;
 
 public:
-	ImageButton(SDL_Texture* textures, AnimatedTextureInfo textureInfo, SDL_Texture* image, int x, int y, int w, int h);
+	ImageButton(
+		SDL_Texture* textures, 
+		AnimatedTextureInfo textureInfo, 
+		SDL_Texture* image, 
+		SDL_Rect rect, 
+		std::function<void()> onClick);
 	~ImageButton(); 
 
 	virtual void Render(SDL_Renderer* renderer) override;

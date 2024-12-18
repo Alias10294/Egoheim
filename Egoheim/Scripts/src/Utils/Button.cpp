@@ -3,15 +3,15 @@
 #include <iostream>
 
 Button::Button(SDL_Texture* textures, AnimatedTextureInfo textureInfo, SDL_Rect rect, std::function<void()> onClick)
-	: m_texture(textures, textureInfo), m_action(action)
+	: m_texture(textures, textureInfo), m_onClick(onClick)
 {
 	const WindowCoeffs windowCoeffs = Game::GetWindowCoeffs();
 	m_rect = SDL_Rect
 	{
-		windowCoeffs.w * x,
-		windowCoeffs.h * y,
-		windowCoeffs.w * w,
-		windowCoeffs.h * h
+		windowCoeffs.w * rect.x,
+		windowCoeffs.h * rect.y,
+		windowCoeffs.w * rect.w,
+		windowCoeffs.h * rect.h
 	};
 }
 Button::~Button()
@@ -27,14 +27,12 @@ void Button::HandleEvents(const SDL_Event& event)
 		m_rect.y <= y && y < m_rect.y + m_rect.h);
 	if (mouseOnButton)
 	{
-		if (event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT && m_action)
-			m_action();
+		if (event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT && m_onClick)
+			m_onClick();
 		m_isHovered = true;
 	}
 	else
-	{
 		m_isHovered = false;
-	}
 }
 void Button::Update(const float deltaTime)
 {

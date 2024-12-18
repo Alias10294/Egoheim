@@ -2,18 +2,23 @@
 #include "../../includes/Game.h"
 
 
-TextButton::TextButton(SDL_Texture* textures, AnimatedTextureInfo textureInfo, const char* text, int x, int y, int w, int h, std::function<void()> action)
-	: Button(textures, textureInfo, x, y, w, h, action), m_text(text), m_textRect{ NULL, NULL, NULL, NULL }
+TextButton::TextButton(
+	SDL_Texture* textures, 
+	AnimatedTextureInfo textureInfo, 
+	const char* text, 
+	SDL_Rect rect, 
+	std::function<void()> onClick)
+	: Button(textures, textureInfo, rect, onClick), m_text(text), m_textRect{ NULL, NULL, NULL, NULL }
 {
 	const WindowCoeffs windowCoeffs = Game::GetWindowCoeffs();
 
-	m_textRect.y = ((y + h / 2) - (Game::s_bigFont.GetLetterHeight() / 2)) * windowCoeffs.h + windowCoeffs.h;
+	m_textRect.y = ((rect.y + rect.h / 2) - (Game::s_bigFont.GetLetterHeight() / 2)) * windowCoeffs.h + windowCoeffs.h;
 
 	int wText = Game::s_bigFont.GetLetterWidth(m_text[0]);
 	int i = 0;
 	while (m_text[++i] != '\0')
 		wText += Game::s_bigFont.GetLetterSpace() + Game::s_bigFont.GetLetterWidth(m_text[i]);
-	m_textRect.x = ((x + w / 2) - (wText / 2)) * windowCoeffs.w - windowCoeffs.w;
+	m_textRect.x = ((rect.x + rect.w / 2) - (wText / 2)) * windowCoeffs.w - windowCoeffs.w;
 }
 TextButton::~TextButton()
 { }

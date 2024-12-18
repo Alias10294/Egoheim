@@ -52,34 +52,22 @@ void StartScene::Start(SDL_Renderer* renderer)
 		m_buttonBackground,
 		startButtonTextureInfo, 
 		"play", 
-		STARTBUTTON_X, 
-		STARTBUTTON_Y_PLAY, 
-		STARTBUTTON_W,
-		STARTBUTTON_H); // "Play" button
+		{ STARTBUTTON_X, STARTBUTTON_Y_PLAY, STARTBUTTON_W, STARTBUTTON_H }); // "Play" button
 	m_startButtons[1] = new TextButton(
 		m_buttonBackground,
 		startButtonTextureInfo, 
 		"codex", 
-		STARTBUTTON_X,
-		STARTBUTTON_Y_CODEX,
-		STARTBUTTON_W,
-		STARTBUTTON_H); // "Codex" button
+		{ STARTBUTTON_X, STARTBUTTON_Y_CODEX, STARTBUTTON_W, STARTBUTTON_H }); // "Codex" button
 	m_startButtons[2] = new TextButton(
 		m_buttonBackground,
 		startButtonTextureInfo, 
 		"options",
-		STARTBUTTON_X,
-		STARTBUTTON_Y_OPTIONS,
-		STARTBUTTON_W,
-		STARTBUTTON_H); // "Options" button
+		{ STARTBUTTON_X, STARTBUTTON_Y_OPTIONS, STARTBUTTON_W, STARTBUTTON_H }); // "Options" button
 	m_startButtons[3] = new TextButton(
 		m_buttonBackground,
 		startButtonTextureInfo, 
 		"quit",
-		STARTBUTTON_X,
-		STARTBUTTON_Y_QUIT,
-		STARTBUTTON_W,
-		STARTBUTTON_H,
+		{ STARTBUTTON_X, STARTBUTTON_Y_QUIT, STARTBUTTON_W, STARTBUTTON_H },
 		[this]() { this->End(); }); // "Quit" button
 
 	// Start the scene
