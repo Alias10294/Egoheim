@@ -2,7 +2,7 @@
 #include "../../includes/Game.h"
 #include <iostream>
 
-Button::Button(SDL_Texture* textures, AnimatedTextureInfo textureInfo, int x, int y, int w, int h, std::function<void()> action)
+Button::Button(SDL_Texture* textures, AnimatedTextureInfo textureInfo, SDL_Rect rect, std::function<void()> onClick)
 	: m_texture(textures, textureInfo), m_action(action)
 {
 	const WindowCoeffs windowCoeffs = Game::GetWindowCoeffs();
