@@ -17,9 +17,9 @@ void Scene::Run(SDL_Renderer* renderer)
 	// Updating and rendering
 	while (m_accumulatedMs >= m_frameDelayMs)
 	{
-		Update(m_frameDelayMs / 1000.0f);
+		Update(m_frameDelayMs);
 		Render(renderer);
-		m_accumulatedMs -= (uint32_t)m_frameDelayMs;
+		m_accumulatedMs -= m_frameDelayMs;
 	}
 
 	const uint32_t frameEndMs = SDL_GetTicks();

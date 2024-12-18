@@ -17,7 +17,7 @@ public:
 	virtual void Start(SDL_Renderer* renderer) override;
 
 	virtual void HandleEvents(const SDL_Event& event) override;
-	virtual void Update(const float deltaTime) override;
+	virtual void Update(const uint32_t deltaTimeMs) override;
 	virtual void Render(SDL_Renderer* renderer) override;
 
 	virtual void End() override;

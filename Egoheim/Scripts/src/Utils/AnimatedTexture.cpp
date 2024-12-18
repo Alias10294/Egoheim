@@ -2,7 +2,7 @@
 #include "../../includes/Game.h"
 
 AnimatedTexture::AnimatedTexture(SDL_Texture* textures, AnimatedTextureInfo textureInfo, int direction)
-	: m_textures(textures), m_increment(direction), m_currentFrameInfo{ 0, 0.0f }
+	: m_textures(textures), m_increment(direction), m_currentFrameInfo{ 0, 0 }
 {
 	SDL_QueryTexture(textures, NULL, NULL, &m_currentRect.w, &m_currentRect.h);
 	m_currentRect.w /= textureInfo.nbFrames;
@@ -12,33 +12,33 @@ AnimatedTexture::AnimatedTexture(SDL_Texture* textures, AnimatedTextureInfo text
 }
 AnimatedTexture::~AnimatedTexture()
 {
-	std::vector<float>().swap(m_frameTimes);
+	std::vector<int>().swap(m_frameTimes);
 }
 
-void AnimatedTexture::Update(const float deltaTime)
+void AnimatedTexture::Update(const uint32_t deltaTimeMs)
 {
-	m_currentFrameInfo.time += deltaTime;
+	m_currentFrameInfo.timeMs += deltaTimeMs;
 
-	while (m_currentFrameInfo.time >= m_frameTimes[m_currentFrameInfo.i])
+	while (m_currentFrameInfo.timeMs >= m_frameTimes[m_currentFrameInfo.i])
 	{
 		m_currentFrameInfo.i = (m_currentFrameInfo.i + m_increment) % (int)m_frameTimes.size();
-		m_currentFrameInfo.time -= m_frameTimes[m_currentFrameInfo.i];
+		m_currentFrameInfo.timeMs -= m_frameTimes[m_currentFrameInfo.i];
 		m_currentRect.x = m_currentRect.w * m_currentFrameInfo.i;
 	}
 }
-void AnimatedTexture::UpdateReact(const float deltaTime, const bool state)
+void AnimatedTexture::UpdateReact(const uint32_t deltaTimeMs, const bool state)
 {
 	if (state && m_currentFrameInfo.i < m_frameTimes.size() - 1)
 		m_increment = 1;
 	if (!state && m_currentFrameInfo.i > 0)
 		m_increment = -1;
 
-	m_currentFrameInfo.time += deltaTime;
+	m_currentFrameInfo.timeMs += deltaTimeMs;
 
-	while (m_currentFrameInfo.time >= m_frameTimes[m_currentFrameInfo.i])
+	while (m_currentFrameInfo.timeMs >= m_frameTimes[m_currentFrameInfo.i])
 	{
 		m_currentFrameInfo.i = (m_currentFrameInfo.i + m_increment) % (int)m_frameTimes.size();
-		m_currentFrameInfo.time -= m_frameTimes[m_currentFrameInfo.i];
+		m_currentFrameInfo.timeMs -= m_frameTimes[m_currentFrameInfo.i];
 		m_currentRect.x = m_currentRect.w * m_currentFrameInfo.i;
 
 		if (m_increment > 0 && m_currentFrameInfo.i == m_frameTimes.size() - 1)

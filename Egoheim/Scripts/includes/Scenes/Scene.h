@@ -8,7 +8,7 @@ constexpr int FPS_LIMIT = 60;
 class Scene
 {
 private:
-	const float m_frameDelayMs = 1000.0f / FPS_LIMIT;
+	const uint32_t m_frameDelayMs = 1000 / FPS_LIMIT;
 	uint32_t m_accumulatedMs = 0;
 
 protected:
@@ -20,7 +20,7 @@ public:
 	virtual void Start(SDL_Renderer* renderer) = 0;
 
 	virtual void HandleEvents(const SDL_Event& event) = 0;
-	virtual void Update(const float deltaTime) = 0;
+	virtual void Update(const uint32_t deltaTimeMs) = 0;
 	virtual void Render(SDL_Renderer* renderer) = 0;
 	void Run(SDL_Renderer* renderer);
 

@@ -79,10 +79,10 @@ void StartScene::HandleEvents(const SDL_Event& event)
 	for (auto& button : m_startButtons)
 		button->HandleEvents(event);
 }
-void StartScene::Update(const float deltaTime)
+void StartScene::Update(const uint32_t deltaTimeMs)
 {
 	for (auto& button : m_startButtons)
-		button->Update(deltaTime);
+		button->Update(deltaTimeMs);
 }
 void StartScene::Render(SDL_Renderer* renderer)
 {

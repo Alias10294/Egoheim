@@ -13,7 +13,7 @@ constexpr int STARTBUTTON_Y_OPTIONS = 132;
 constexpr int STARTBUTTON_Y_QUIT = 163;
 
 constexpr int STARTBUTTON_NBFRAMES = 3;
-constexpr float STARTBUTTON_FRAMETIMES[] = { 0.03f, 0.03f, 0.03f };
+constexpr float STARTBUTTON_FRAMETIMES[] = { 30, 30, 30 };
 
 class StartScene : public Scene
 {
@@ -29,7 +29,7 @@ public:
 	virtual void Start(SDL_Renderer* renderer) override;
 
 	virtual void HandleEvents(const SDL_Event& event) override;
-	virtual void Update(const float deltaTime) override;
+	virtual void Update(const uint32_t deltaTimeMs) override;
 	virtual void Render(SDL_Renderer* renderer) override;
 
 	virtual void End() override;

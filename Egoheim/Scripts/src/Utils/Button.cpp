@@ -34,9 +34,9 @@ void Button::HandleEvents(const SDL_Event& event)
 	else
 		m_isHovered = false;
 }
-void Button::Update(const float deltaTime)
+void Button::Update(const uint32_t deltaTimeMs)
 {
-	m_texture.UpdateReact(deltaTime, m_isHovered);
+	m_texture.UpdateReact(deltaTimeMs, m_isHovered);
 }
 void Button::Render(SDL_Renderer* renderer)
 {

@@ -18,7 +18,7 @@ public:
 	virtual ~Button();
 
 	void HandleEvents(const SDL_Event& event); 
-	void Update(const float deltaTime);
+	void Update(const uint32_t deltaTimeMs);
 	virtual void Render(SDL_Renderer* renderer);
 };
 
