@@ -37,3 +37,4 @@ vcpkg/
 # Ignore asset aseprite files
 *.aseprite
 *.ase
+/Egoheim/Scripts/includes/Scenes/StartScene.h
