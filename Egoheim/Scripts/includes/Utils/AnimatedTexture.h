@@ -11,7 +11,7 @@ class AnimatedTexture
 private:
 	SDL_Texture* m_textures;
 	SDL_Rect m_currentRect;
-	std::vector<int> m_frameTimes;
+	std::vector<int> m_frameTimesMs;
 	struct CurrentFrameInfo { int i; int timeMs; } m_currentFrameInfo;
 	int m_increment;
 
