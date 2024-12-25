@@ -36,7 +36,9 @@
     <ClInclude Include="Scripts\includes\Utils\WindowCoeffs.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Scripts\includes\ResourceManager.h" />
     <ClCompile Include="Scripts\includes\Utils\ImageButton.h" />
+    <ClCompile Include="Scripts\src\ResourceManager.cpp" />
     <ClCompile Include="Scripts\src\Utils\AnimatedTexture.cpp" />
     <ClCompile Include="Scripts\src\Utils\Font.cpp" />
     <ClCompile Include="Scripts\src\Utils\Button.cpp" />

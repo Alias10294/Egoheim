@@ -5,29 +5,17 @@ WindowCoeffs Game::s_windowCoeffs = { 0, 0 };
 Font Game::s_bigFont = Font();
 
 Game::Game()
-	: m_window(nullptr), m_renderer(nullptr)
-{ }
-Game::~Game()
-{ }
-
-const WindowCoeffs Game::GetWindowCoeffs()
-{
-	return s_windowCoeffs;
-}
-
-bool Game::Start()
-{
+	: m_window(nullptr), m_renderer(nullptr), m_sceneManager(), m_resourceManager()
+{ 
 	if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
 	{
 		std::cerr << "Initialization error of SDL: " << SDL_GetError() << std::endl;
-		return false;
 	}
 
 	if (IMG_Init(IMG_INIT_PNG) == 0)
 	{
 		std::cerr << "Initialization error of IMG:" << IMG_GetError() << std::endl;
 		SDL_Quit();
-		return false;
 	}
 
 	m_window = SDL_CreateWindow(
@@ -42,7 +30,6 @@ bool Game::Start()
 		std::cerr << "Initialization error of window: " << SDL_GetError() << std::endl;
 		IMG_Quit();
 		SDL_Quit();
-		return false;
 	}
 	SDL_GetWindowSize(m_window, &s_windowCoeffs.w, &s_windowCoeffs.h);
 	s_windowCoeffs.w /= WINDOW_WIDTH;
@@ -58,34 +45,38 @@ bool Game::Start()
 		SDL_DestroyWindow(m_window);
 		SDL_Quit();
 		IMG_Quit();
-		return false;
 	}
 
 	s_bigFont.Start(
-		m_renderer, 
-		BIGFONT_LETTERS, 
+		m_renderer,
+		BIGFONT_LETTERS,
 		BIGFONT_WIDTHS,
-		BIGFONT_SPACE, 
+		BIGFONT_SPACE,
 		"BigFont");
 
-	return true;
+	m_resourceManager.Start(m_renderer);
 }
-void Game::Run()
-{
-	SceneManager sceneManager;
-	sceneManager.RunScene(m_renderer);
-}
-void Game::End()
+Game::~Game()
 {
 	if (m_window)
 	{
 		SDL_DestroyWindow(m_window);
 		m_window = nullptr;
 	}
-	if(m_renderer)
+	if (m_renderer)
 	{
 		SDL_DestroyRenderer(m_renderer);
 		m_renderer = nullptr;
 	}
 	SDL_Quit();
+}
+
+const WindowCoeffs Game::GetWindowCoeffs()
+{
+	return s_windowCoeffs;
+}
+
+void Game::Run()
+{
+	m_sceneManager.RunScene(m_renderer);
 }
