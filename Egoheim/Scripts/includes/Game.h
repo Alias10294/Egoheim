@@ -3,7 +3,7 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
-#include "Scenes/SceneManager.h"
+#include "SceneManager.h"
 #include "Utils/Font.h"
 #include "Utils/WindowCoeffs.h"
 

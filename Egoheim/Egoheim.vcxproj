@@ -30,7 +30,7 @@
     <ClInclude Include="Scripts\includes\Utils\TextButton.h" />
     <ClInclude Include="Scripts\includes\Scenes\CombatScene.h" />
     <ClInclude Include="Scripts\includes\Scenes\Scene.h" />
-    <ClInclude Include="Scripts\includes\Scenes\SceneManager.h" />
+    <ClInclude Include="Scripts\includes\SceneManager.h" />
     <ClInclude Include="Scripts\includes\Scenes\StartScene.h" />
     <ClInclude Include="Scripts\includes\Game.h" />
     <ClInclude Include="Scripts\includes\Utils\WindowCoeffs.h" />
@@ -49,7 +49,7 @@
     <ClCompile Include="Scripts\src\Main.cpp" />
     <ClCompile Include="Scripts\src\CombatElements\CharacterElements\Regeneration.cpp" />
     <ClCompile Include="Scripts\src\Scenes\Scene.cpp" />
-    <ClCompile Include="Scripts\src\Scenes\SceneManager.cpp" />
+    <ClCompile Include="Scripts\src\SceneManager.cpp" />
     <ClCompile Include="Scripts\src\CombatElements\CharacterElements\Stamina.cpp" />
     <ClCompile Include="Scripts\src\Scenes\StartScene.cpp" />
   </ItemGroup>

@@ -42,7 +42,7 @@
     <ClInclude Include="Scripts\includes\Scenes\Scene.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Scripts\includes\Scenes\SceneManager.h">
+    <ClInclude Include="Scripts\includes\SceneManager.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Scripts\includes\Scenes\StartScene.h">
@@ -86,7 +86,7 @@
     <ClCompile Include="Scripts\src\Scenes\StartScene.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Scripts\src\Scenes\SceneManager.cpp">
+    <ClCompile Include="Scripts\src\SceneManager.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Scripts\src\Utils\TextButton.cpp">

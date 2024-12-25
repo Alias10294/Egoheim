@@ -1,7 +1,7 @@
 #ifndef SCENEMANAGER_H
 #define SCENEMANAGER_H
 
-#include "Scene.h"
+#include "Scenes/Scene.h"
 
 class SceneManager
 {
