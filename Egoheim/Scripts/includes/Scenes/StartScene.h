@@ -5,12 +5,11 @@
 #include "../Utils/Button.h"
 
 constexpr int STARTBUTTON_X = 6;
+constexpr int STARTBUTTON_Y = 70;
 constexpr int STARTBUTTON_W = 92;
 constexpr int STARTBUTTON_H = 21;
-constexpr int STARTBUTTON_Y_PLAY = 70;
-constexpr int STARTBUTTON_Y_CODEX = 101;
-constexpr int STARTBUTTON_Y_OPTIONS = 132;
-constexpr int STARTBUTTON_Y_QUIT = 163;
+constexpr int STARTBUTTON_SPACE = 31;
+constexpr const char* STARTBUTTON_TEXTS[] = { "play", "codex", "options", "quit" };
 
 constexpr int STARTBUTTON_NBFRAMES = 3;
 constexpr float STARTBUTTON_FRAMETIMES[] = { 30, 30, 30 };
