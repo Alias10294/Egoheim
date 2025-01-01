@@ -22,7 +22,7 @@ private:
 	Button* m_startButtons[4];
 	
 public:
-	StartScene();
+	StartScene(ResourceManager& resourceManager);
 	~StartScene() override;
 
 	virtual void Start(SDL_Renderer* renderer) override;

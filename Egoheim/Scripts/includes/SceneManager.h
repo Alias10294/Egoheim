@@ -14,6 +14,7 @@ public:
 	SceneManager();
 	~SceneManager();
 
+	void Start(ResourceManager& resourceManager);
 	void RunScene(SDL_Renderer* renderer);
 	void SetCurrentScene(int index);
 };

@@ -12,9 +12,9 @@ void ResourceManager::Start(SDL_Renderer* renderer)
 {
 	m_renderer = renderer;
 }
-SDL_Texture* ResourceManager::LoadTexture(const char* path)
+SDL_Texture* ResourceManager::LoadTexture(const char* file)
 {
 	return IMG_LoadTexture(
 		m_renderer,
-		path);
+		file);
 }

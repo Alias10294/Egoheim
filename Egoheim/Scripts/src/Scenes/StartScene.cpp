@@ -3,8 +3,8 @@
 #include <random>
 #include <format>
 
-StartScene::StartScene()
-	: m_background(nullptr), m_buttonBackground(nullptr), m_startButtons()
+StartScene::StartScene(ResourceManager& resourceManager)
+	: Scene(resourceManager), m_background(nullptr), m_buttonBackground(nullptr), m_startButtons()
 { }
 StartScene::~StartScene()
 {
@@ -24,11 +24,16 @@ void StartScene::Start(SDL_Renderer* renderer)
 	const char* backgroundStyle = backgroundStyles[distribution(rng)];
 
 	// Add the background image
-	m_background = IMG_LoadTexture(
+	/*m_background = IMG_LoadTexture(
 		renderer, 
 		std::format(
 			"Assets/StartScene/{}/Background{}.png", 
 			backgroundStyle, 
+			backgroundStyle).c_str()); */
+	m_background = m_resourceManager.LoadTexture(
+		std::format(
+			"Assets/StartScene/{}/Background{}.png",
+			backgroundStyle,
 			backgroundStyle).c_str());
 	if (!m_background)
 	{

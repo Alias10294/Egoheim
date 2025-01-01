@@ -2,6 +2,7 @@
 #define SCENE_H
 #include <SDL2/SDL_image.h>
 #include "../Utils/Font.h"
+#include "../ResourceManager.h"
 
 constexpr int FPS_LIMIT = 60;
 
@@ -12,9 +13,12 @@ private:
 	uint32_t m_accumulatedMs = 0;
 
 protected:
+	ResourceManager& m_resourceManager;
+
 	bool m_isRunning = false;
 
 public:
+	Scene(ResourceManager& resourceManager);
 	virtual ~Scene() = default;
 
 	virtual void Start(SDL_Renderer* renderer) = 0;
