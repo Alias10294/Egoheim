@@ -24,12 +24,6 @@ void StartScene::Start(SDL_Renderer* renderer)
 	const char* backgroundStyle = backgroundStyles[distribution(rng)];
 
 	// Add the background image
-	/*m_background = IMG_LoadTexture(
-		renderer, 
-		std::format(
-			"Assets/StartScene/{}/Background{}.png", 
-			backgroundStyle, 
-			backgroundStyle).c_str()); */
 	m_background = m_resourceManager.LoadTexture(
 		std::format(
 			"Assets/StartScene/{}/Background{}.png",
@@ -41,8 +35,7 @@ void StartScene::Start(SDL_Renderer* renderer)
 	}
 
 	// Add the buttons
-	m_buttonBackground = IMG_LoadTexture(
-		renderer,
+	m_buttonBackground = m_resourceManager.LoadTexture(
 		std::format(
 			"Assets/StartScene/{}/ButtonBackground{}.png",
 			backgroundStyle,
