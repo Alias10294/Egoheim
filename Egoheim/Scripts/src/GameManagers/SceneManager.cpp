@@ -1,5 +1,5 @@
-#include "../includes/SceneManager.h"
-#include "../includes/Scenes/StartScene.h"
+#include "../../includes/GameManagers/SceneManager.h"
+#include "../../includes/Scenes/StartScene.h"
 
 SceneManager::SceneManager()
 	: indexCurrentScene(0)

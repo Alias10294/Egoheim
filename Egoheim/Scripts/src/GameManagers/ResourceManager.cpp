@@ -1,4 +1,4 @@
-#include "../includes/ResourceManager.h"
+#include "../../includes/GameManagers/ResourceManager.h"
 #include "SDL2/SDL_image.h"
 #include <format>
 

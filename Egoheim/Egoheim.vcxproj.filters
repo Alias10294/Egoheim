@@ -42,7 +42,7 @@
     <ClInclude Include="Scripts\includes\Scenes\Scene.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Scripts\includes\SceneManager.h">
+    <ClInclude Include="Scripts\includes\GameManagers\SceneManager.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Scripts\includes\Scenes\StartScene.h">
@@ -86,7 +86,7 @@
     <ClCompile Include="Scripts\src\Scenes\StartScene.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Scripts\src\SceneManager.cpp">
+    <ClCompile Include="Scripts\src\GameManagers\SceneManager.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Scripts\src\Utils\TextButton.cpp">
@@ -108,6 +108,12 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Scripts\src\Utils\AnimatedTexture.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\includes\GameManagers\ResourceManager.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\src\GameManagers\ResourceManager.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>

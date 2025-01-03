@@ -2,7 +2,7 @@
 #define SCENE_H
 #include <SDL2/SDL_image.h>
 #include "../Utils/Font.h"
-#include "../ResourceManager.h"
+#include "../GameManagers/ResourceManager.h"
 
 constexpr int FPS_LIMIT = 60;
 

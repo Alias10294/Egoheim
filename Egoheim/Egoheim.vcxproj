@@ -30,15 +30,15 @@
     <ClInclude Include="Scripts\includes\Utils\TextButton.h" />
     <ClInclude Include="Scripts\includes\Scenes\CombatScene.h" />
     <ClInclude Include="Scripts\includes\Scenes\Scene.h" />
-    <ClInclude Include="Scripts\includes\SceneManager.h" />
+    <ClInclude Include="Scripts\includes\GameManagers\SceneManager.h" />
     <ClInclude Include="Scripts\includes\Scenes\StartScene.h" />
     <ClInclude Include="Scripts\includes\Game.h" />
     <ClInclude Include="Scripts\includes\Utils\WindowCoeffs.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Scripts\includes\ResourceManager.h" />
+    <ClCompile Include="Scripts\includes\GameManagers\ResourceManager.h" />
     <ClCompile Include="Scripts\includes\Utils\ImageButton.h" />
-    <ClCompile Include="Scripts\src\ResourceManager.cpp" />
+    <ClCompile Include="Scripts\src\GameManagers\ResourceManager.cpp" />
     <ClCompile Include="Scripts\src\Utils\AnimatedTexture.cpp" />
     <ClCompile Include="Scripts\src\Utils\Font.cpp" />
     <ClCompile Include="Scripts\src\Utils\Button.cpp" />
@@ -51,7 +51,7 @@
     <ClCompile Include="Scripts\src\Main.cpp" />
     <ClCompile Include="Scripts\src\CombatElements\CharacterElements\Regeneration.cpp" />
     <ClCompile Include="Scripts\src\Scenes\Scene.cpp" />
-    <ClCompile Include="Scripts\src\SceneManager.cpp" />
+    <ClCompile Include="Scripts\src\GameManagers\SceneManager.cpp" />
     <ClCompile Include="Scripts\src\CombatElements\CharacterElements\Stamina.cpp" />
     <ClCompile Include="Scripts\src\Scenes\StartScene.cpp" />
   </ItemGroup>
