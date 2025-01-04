@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Scripts\includes\GameManagers\InputManager.h" />
     <ClInclude Include="Scripts\includes\Utils\AnimatedTexture.h" />
     <ClInclude Include="Scripts\includes\Utils\AnimatedTextureInfo.h" />
     <ClInclude Include="Scripts\includes\Utils\Font.h" />
@@ -38,6 +39,7 @@
   <ItemGroup>
     <ClCompile Include="Scripts\includes\GameManagers\ResourceManager.h" />
     <ClCompile Include="Scripts\includes\Utils\ImageButton.h" />
+    <ClCompile Include="Scripts\src\GameManagers\InputManager.cpp" />
     <ClCompile Include="Scripts\src\GameManagers\ResourceManager.cpp" />
     <ClCompile Include="Scripts\src\Utils\AnimatedTexture.cpp" />
     <ClCompile Include="Scripts\src\Utils\Font.cpp" />
