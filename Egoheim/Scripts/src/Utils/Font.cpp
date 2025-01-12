@@ -20,7 +20,7 @@ const int Font::GetLetterSpace() const
 	return m_spaceBetweenLetters;
 }
 
-const void Font::Start(
+const void Font::Init(
 	SDL_Renderer* renderer, 
 	const char* letters, 
 	const int letterWidths[],  

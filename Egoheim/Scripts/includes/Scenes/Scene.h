@@ -21,7 +21,7 @@ public:
 	Scene(ResourceManager& resourceManager);
 	virtual ~Scene() = default;
 
-	virtual void Start(SDL_Renderer* renderer) = 0;
+	virtual void Init(SDL_Renderer* renderer) = 0;
 
 	virtual void HandleEvents(const SDL_Event& event) = 0;
 	virtual void Update(const uint32_t deltaTimeMs) = 0;

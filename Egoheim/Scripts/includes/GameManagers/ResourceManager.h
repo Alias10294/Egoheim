@@ -12,7 +12,7 @@ public:
 	ResourceManager();
 	~ResourceManager();
 
-	void Start(SDL_Renderer* renderer);
+	void Init(SDL_Renderer* renderer);
 	SDL_Texture* LoadTexture(const char* file);
 };
 

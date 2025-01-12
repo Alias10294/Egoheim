@@ -8,7 +8,7 @@ ResourceManager::ResourceManager()
 ResourceManager::~ResourceManager()
 { }
 
-void ResourceManager::Start(SDL_Renderer* renderer)
+void ResourceManager::Init(SDL_Renderer* renderer)
 {
 	m_renderer = renderer;
 }

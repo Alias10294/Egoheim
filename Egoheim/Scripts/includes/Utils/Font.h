@@ -27,7 +27,7 @@ public:
 	const int GetLetterWidth(char c);
 	const int GetLetterSpace() const;
 
-	const void Start(SDL_Renderer* renderer, const char* letters, const int letterWidths[], const int spaceBetweenLetters, const char* folderPath);
+	const void Init(SDL_Renderer* renderer, const char* letters, const int letterWidths[], const int spaceBetweenLetters, const char* folderPath);
 	const void RenderText(SDL_Renderer* renderer, const char* letters, SDL_Rect* rect);
 };
 

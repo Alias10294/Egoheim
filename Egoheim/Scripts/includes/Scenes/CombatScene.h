@@ -14,7 +14,7 @@ public:
 	CombatScene(ResourceManager& resourceManager, std::shared_ptr<Character> character1, std::shared_ptr<Character> character2);
 	~CombatScene();
 
-	virtual void Start(SDL_Renderer* renderer) override;
+	virtual void Init(SDL_Renderer* renderer) override;
 
 	virtual void HandleEvents(const SDL_Event& event) override;
 	virtual void Update(const uint32_t deltaTimeMs) override;

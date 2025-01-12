@@ -47,15 +47,15 @@ Game::Game()
 		IMG_Quit();
 	}
 
-	s_bigFont.Start(
+	s_bigFont.Init(
 		m_renderer,
 		BIGFONT_LETTERS,
 		BIGFONT_WIDTHS,
 		BIGFONT_SPACE,
 		"BigFont");
 
-	m_resourceManager.Start(m_renderer);
-	m_sceneManager.Start(m_resourceManager);
+	m_resourceManager.Init(m_renderer);
+	m_sceneManager.Init(m_resourceManager);
 }
 Game::~Game()
 {

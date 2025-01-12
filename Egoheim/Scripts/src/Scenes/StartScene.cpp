@@ -14,7 +14,7 @@ StartScene::~StartScene()
 	SDL_DestroyTexture(m_buttonBackground);
 }
 
-void StartScene::Start(SDL_Renderer* renderer)
+void StartScene::Init(SDL_Renderer* renderer)
 { 
 	// Choose a random menu style
 	const char* backgroundStyles[] = { "Bilskin" };

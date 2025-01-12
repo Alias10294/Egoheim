@@ -6,7 +6,7 @@ CombatScene::CombatScene(ResourceManager& resourceManager, std::shared_ptr<Chara
 CombatScene::~CombatScene()
 { }
 
-void CombatScene::Start(SDL_Renderer* renderer)
+void CombatScene::Init(SDL_Renderer* renderer)
 { }
 
 void CombatScene::HandleEvents(const SDL_Event& event)
