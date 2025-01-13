@@ -8,29 +8,28 @@ constexpr int FPS_LIMIT = 60;
 
 class Scene
 {
-private:
-	const uint32_t m_frameDelayMs = 1000 / FPS_LIMIT;
-	uint32_t m_accumulatedMs = 0;
-
-protected:
-	ResourceManager& m_resourceManager;
-
-	bool m_isRunning = false;
-
 public:
 	Scene(ResourceManager& resourceManager);
 	virtual ~Scene() = default;
 
 	virtual void Init(SDL_Renderer* renderer) = 0;
+	virtual void Quit() = 0;
 
 	virtual void HandleEvents(const SDL_Event& event) = 0;
 	virtual void Update(const uint32_t deltaTimeMs) = 0;
 	virtual void Render(SDL_Renderer* renderer) = 0;
 	void Run(SDL_Renderer* renderer);
 
-	virtual void End() = 0;
-
 	bool IsRunning() const;
+
+protected:
+	ResourceManager& m_resourceManager;
+
+	bool m_isRunning = false;
+
+private:
+	const uint32_t m_frameDelayMs = 1000 / FPS_LIMIT;
+	uint32_t m_accumulatedMs = 0;
 };
 
 #endif SCENE_H

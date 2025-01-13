@@ -52,11 +52,15 @@ void StartScene::Init(SDL_Renderer* renderer)
 			startButtonTextureInfo,
 			STARTBUTTON_TEXTS[i],
 			{ STARTBUTTON_X, STARTBUTTON_Y + i * STARTBUTTON_SPACE,  STARTBUTTON_W, STARTBUTTON_H }, 
-			[this]() { this->End(); });
+			[this]() { this->Quit(); });
 	}
 
 	// Start the scene
 	m_isRunning = true;
+}
+void StartScene::Quit()
+{
+	m_isRunning = false;
 }
 
 void StartScene::HandleEvents(const SDL_Event& event)
@@ -80,9 +84,4 @@ void StartScene::Render(SDL_Renderer* renderer)
 		button->Render(renderer);
 
 	SDL_RenderPresent(renderer); 
-}
-
-void StartScene::End()
-{
-	m_isRunning = false;
 }

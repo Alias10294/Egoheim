@@ -15,12 +15,11 @@ public:
 	~CombatScene();
 
 	virtual void Init(SDL_Renderer* renderer) override;
+	virtual void Quit() override;
 
 	virtual void HandleEvents(const SDL_Event& event) override;
 	virtual void Update(const uint32_t deltaTimeMs) override;
 	virtual void Render(SDL_Renderer* renderer) override;
-
-	virtual void End() override;
 };
 
 #endif COMBATSCENE_H
