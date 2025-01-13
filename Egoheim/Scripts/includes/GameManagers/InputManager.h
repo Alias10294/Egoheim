@@ -19,6 +19,7 @@ public:
     void Quit();
 
     void HandleEvent(SDL_Event& event);
+    void UpdatePreviousStates();
 
     bool IsKeyPressed(SDL_Scancode scancode) const;
     bool IsKeyJustPressed(SDL_Scancode scancode) const;
@@ -45,8 +46,6 @@ private:
     void HandleControllerDeviceRemoved(SDL_JoystickID joystickID);
     void HandleControllerButtonEvent(const SDL_ControllerButtonEvent& cbuttonEvent);
     void HandleControllerAxisEvent(const SDL_ControllerAxisEvent& caxisEvent);
-
-    void UpdatePreviousStates();
 
     bool m_currentKeyStates[NUM_SCANCODES];
     bool m_previousKeyStates[NUM_SCANCODES];

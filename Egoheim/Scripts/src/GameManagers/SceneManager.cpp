@@ -6,14 +6,19 @@ SceneManager::SceneManager()
 { }
 SceneManager::~SceneManager()
 {
-	for (int i = 0; i < 2; i++)
-		delete scenes[i];
+	Quit();
 }
 
 void SceneManager::Init(ResourceManager& resourceManager)
 {
 	scenes[0] = (Scene*)new StartScene(resourceManager);
 }
+void SceneManager::Quit()
+{
+	for (int i = 0; i < 2; i++)
+		delete scenes[i];
+}
+
 void SceneManager::RunScene(SDL_Renderer* renderer)
 {
 	scenes[indexCurrentScene]->Init(renderer);

@@ -71,6 +71,19 @@ void InputManager::HandleEvent(SDL_Event& event)
 		break;
 	}
 }
+void InputManager::UpdatePreviousStates()
+{
+	for (int i = 0; i < NUM_SCANCODES; i++)
+		m_previousKeyStates[i] = m_currentKeyStates[i];
+	for (int i = 0; i < NB_MOUSE_BUTTONS; i++)
+		m_previousMouseButtonStates[i] = m_currentMouseButtonStates[i];
+
+	for (int i = 0; i < NB_CONTROLLERS; i++)
+	{
+		for (const auto& button : m_controllerInput[i].currentButtonStates)
+			m_controllerInput[i].previousButtonStates[button.first] = m_controllerInput[i].currentButtonStates[button.first];
+	}
+}
 
 bool InputManager::IsKeyPressed(SDL_Scancode scancode) const
 {
@@ -206,18 +219,5 @@ void InputManager::HandleControllerAxisEvent(const SDL_ControllerAxisEvent& caxi
 	{
 		if (controllerInfo.joystickID == caxisEvent.which)
 			controllerInfo.axisValues[(SDL_GameControllerAxis)caxisEvent.axis] = caxisEvent.value;
-	}
-}
-void InputManager::UpdatePreviousStates()
-{
-	for (int i = 0; i < NUM_SCANCODES; i++)
-		m_previousKeyStates[i] = m_currentKeyStates[i];
-	for (int i = 0; i < NB_MOUSE_BUTTONS; i++)
-		m_previousMouseButtonStates[i] = m_currentMouseButtonStates[i];
-
-	for (int i = 0; i < NB_CONTROLLERS; i++)
-	{
-		for (const auto& button : m_controllerInput[i].currentButtonStates)
-			m_controllerInput[i].previousButtonStates[button.first] = m_controllerInput[i].currentButtonStates[button.first];
 	}
 }

@@ -5,15 +5,17 @@
 
 class ResourceManager
 {
-private:
-	SDL_Renderer* m_renderer;
-
 public:
 	ResourceManager();
 	~ResourceManager();
 
 	void Init(SDL_Renderer* renderer);
+	void Quit();
+
 	SDL_Texture* LoadTexture(const char* file);
+
+private:
+	SDL_Renderer* m_renderer;
 };
 
 #endif RESOURCEMANAGER_H
