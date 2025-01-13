@@ -7,19 +7,19 @@
 
 class Button
 {
+public:
+	Button(SDL_Texture* textures, AnimatedTextureInfo textureInfo, SDL_Rect rect, std::function<void()> onClick = nullptr);
+	virtual ~Button();
+
+	virtual void HandleEvents(const SDL_Event& event);
+	virtual void Update(const uint32_t deltaTimeMs);
+	virtual void Render(SDL_Renderer* renderer);
+
 protected:
 	SDL_Rect m_rect;
 	AnimatedTexture m_texture;
 	std::function<void()> m_onClick;
 	bool m_isHovered = false;
-
-public:
-	Button(SDL_Texture* textures, AnimatedTextureInfo textureInfo, SDL_Rect rect, std::function<void()> onClick = nullptr);
-	virtual ~Button();
-
-	virtual void HandleEvents(const SDL_Event& event); 
-	virtual void Update(const uint32_t deltaTimeMs);
-	virtual void Render(SDL_Renderer* renderer);
 };
 
 #endif BUTTON_H

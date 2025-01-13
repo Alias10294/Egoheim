@@ -15,14 +15,6 @@ constexpr int WINDOW_HEIGHT = 270;
 
 class Game
 {
-private:
-	SDL_Window* m_window;
-	SDL_Renderer* m_renderer;
-	static WindowCoeffs s_windowCoeffs;
-
-	SceneManager m_sceneManager;
-	ResourceManager m_resourceManager;
-
 public:
 	static Font s_bigFont;
 
@@ -32,6 +24,14 @@ public:
 	static const WindowCoeffs GetWindowCoeffs();
 
 	void Run();
+
+private:
+	SDL_Window* m_window;
+	SDL_Renderer* m_renderer;
+	static WindowCoeffs s_windowCoeffs;
+
+	SceneManager m_sceneManager;
+	ResourceManager m_resourceManager;
 };
 
 #endif GAME_H

@@ -14,11 +14,6 @@ constexpr int SMALLFONT_SPACE = 1;
 
 class Font
 {
-private:
-	std::unordered_map<char, SDL_Rect> m_letterRects;
-	SDL_Texture* m_letterTextures;
-	int m_spaceBetweenLetters;
-
 public:
 	Font();
 	~Font() = default;
@@ -27,8 +22,19 @@ public:
 	const int GetLetterWidth(char c);
 	const int GetLetterSpace() const;
 
-	const void Init(SDL_Renderer* renderer, const char* letters, const int letterWidths[], const int spaceBetweenLetters, const char* folderPath);
+	const void Init(
+		SDL_Renderer* renderer, 
+		const char* letters, 
+		const int letterWidths[], 
+		const int spaceBetweenLetters, 
+		const char* folderPath);
+
 	const void RenderText(SDL_Renderer* renderer, const char* letters, SDL_Rect* rect);
+
+private:
+	std::unordered_map<char, SDL_Rect> m_letterRects;
+	SDL_Texture* m_letterTextures;
+	int m_spaceBetweenLetters;
 };
 
 #endif FONT_H

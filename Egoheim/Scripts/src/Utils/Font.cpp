@@ -44,6 +44,7 @@ const void Font::Init(
 	}
 	m_spaceBetweenLetters = spaceBetweenLetters;
 }
+
 const void Font::RenderText(SDL_Renderer* renderer, const char* letters, SDL_Rect* rect)
 {
 	const WindowCoeffs& windowCoeffs = Game::GetWindowCoeffs();
