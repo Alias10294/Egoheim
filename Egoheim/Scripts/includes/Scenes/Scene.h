@@ -3,7 +3,7 @@
 #include <SDL2/SDL_image.h>
 #include "../Utils/Font.h"
 #include "../GameManagers/ResourceManager.h"
-#include "../GameManagers/InputManager.h"
+#include "../EventHandling/InputManager.h"
 
 constexpr int FPS_LIMIT = 60;
 

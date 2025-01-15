@@ -19,7 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Scripts\includes\GameManagers\InputManager.h" />
+    <ClInclude Include="Scripts\includes\EventHandling\Input.h" />
+    <ClInclude Include="Scripts\includes\EventHandling\InputConfiguration.h" />
+    <ClInclude Include="Scripts\includes\EventHandling\InputManager.h" />
     <ClInclude Include="Scripts\includes\Utils\AnimatedTexture.h" />
     <ClInclude Include="Scripts\includes\Utils\Font.h" />
     <ClInclude Include="Scripts\includes\CombatElements\CharacterElements\Character.h" />
@@ -38,7 +40,9 @@
   <ItemGroup>
     <ClCompile Include="Scripts\includes\GameManagers\ResourceManager.h" />
     <ClCompile Include="Scripts\includes\Utils\ImageButton.h" />
-    <ClCompile Include="Scripts\src\GameManagers\InputManager.cpp" />
+    <ClCompile Include="Scripts\src\EventHandling\Input.cpp" />
+    <ClCompile Include="Scripts\src\EventHandling\InputConfiguration.cpp" />
+    <ClCompile Include="Scripts\src\EventHandling\InputManager.cpp" />
     <ClCompile Include="Scripts\src\GameManagers\ResourceManager.cpp" />
     <ClCompile Include="Scripts\src\Utils\AnimatedTexture.cpp" />
     <ClCompile Include="Scripts\src\Utils\Font.cpp" />

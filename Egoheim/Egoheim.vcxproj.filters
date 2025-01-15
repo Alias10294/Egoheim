@@ -57,7 +57,13 @@
     <ClInclude Include="Scripts\includes\Utils\WindowCoeffs.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Scripts\includes\GameManagers\InputManager.h">
+    <ClInclude Include="Scripts\includes\EventHandling\InputManager.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\includes\EventHandling\InputConfiguration.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\includes\EventHandling\Input.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
@@ -116,7 +122,13 @@
     <ClCompile Include="Scripts\src\GameManagers\ResourceManager.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Scripts\src\GameManagers\InputManager.cpp">
+    <ClCompile Include="Scripts\src\EventHandling\InputManager.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\src\EventHandling\InputConfiguration.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\src\EventHandling\Input.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>

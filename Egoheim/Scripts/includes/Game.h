@@ -4,7 +4,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include "GameManagers/ResourceManager.h"
-#include "GameManagers/InputManager.h"
+#include "EventHandling/InputManager.h"
 #include "GameManagers/SceneManager.h"
 #include "Utils/Font.h"
 #include "Utils/WindowCoeffs.h"
