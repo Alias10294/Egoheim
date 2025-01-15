@@ -4,6 +4,10 @@
 int main(int argc, char* argv[])
 {
 	Game game;
-	game.Run();
+	if (game.Init())
+	{
+		game.Run();
+		game.Quit();
+	}
 	return 0;
 }

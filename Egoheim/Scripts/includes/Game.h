@@ -22,9 +22,11 @@ public:
 	Game();
 	~Game();
 
-	static const WindowCoeffs GetWindowCoeffs();
-
+	bool Init();
 	void Run();
+	void Quit();
+
+	static const WindowCoeffs GetWindowCoeffs();
 
 private:
 	SDL_Window* m_window;
