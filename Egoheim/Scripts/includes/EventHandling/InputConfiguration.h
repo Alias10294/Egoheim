@@ -1,10 +1,12 @@
 #ifndef INPUTCONFIGURATION_H
 #define INPUTCONFIGURATION_H
 
-#include <vector>
 #include <SDL2/SDL.h>
 #include <unordered_map>
 #include "Input.h"
+
+constexpr const int NB_ACTIONS = 1;
+constexpr const int MAX_POSSIBLE_BINDINGS = 2;
 
 class InputConfiguration
 {
@@ -13,18 +15,19 @@ public:
 	~InputConfiguration();
 
 private:
-	struct Action
+	std::unordered_map<const char*, Input> configuration;
+	const struct Action
 	{
 		const char* actionName;
-		struct PossibleBindings
+		const struct PossibleBindings
 		{
-			std::vector<SDL_EventType> controller;
-			std::vector<SDL_EventType> computer;
+			SDL_EventType controller[MAX_POSSIBLE_BINDINGS];
+			SDL_EventType desktop[MAX_POSSIBLE_BINDINGS];
 		} 
 		possibleBindings;
-	};
+	} 
+	actions[NB_ACTIONS];
 
-	std::unordered_map<Action, Input> configuration;
 };
 
 #endif INPUTCONFIGURATION_H

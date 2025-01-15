@@ -4,6 +4,8 @@
 class Input
 {
 public:
+	Input();
+	~Input();
 
 private:
 
