@@ -3,8 +3,9 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
-#include "GameManagers/SceneManager.h"
 #include "GameManagers/ResourceManager.h"
+#include "GameManagers/InputManager.h"
+#include "GameManagers/SceneManager.h"
 #include "Utils/Font.h"
 #include "Utils/WindowCoeffs.h"
 
@@ -30,8 +31,9 @@ private:
 	SDL_Renderer* m_renderer;
 	static WindowCoeffs s_windowCoeffs;
 
-	SceneManager m_sceneManager;
 	ResourceManager m_resourceManager;
+	InputManager m_inputManager;
+	SceneManager m_sceneManager;
 };
 
 #endif GAME_H

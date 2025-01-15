@@ -1,7 +1,7 @@
 #include "../../includes/Scenes/Scene.h"
 
-Scene::Scene(ResourceManager& resourceManager)
-	: m_resourceManager(resourceManager)
+Scene::Scene(ResourceManager& resourceManager, InputManager& inputManager)
+	: m_resourceManager(resourceManager), m_inputManager(inputManager)
 { }
 
 void Scene::Run(SDL_Renderer* renderer)

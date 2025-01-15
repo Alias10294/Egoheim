@@ -1,7 +1,7 @@
 #include "../../includes/Scenes/CombatScene.h"
 
-CombatScene::CombatScene(ResourceManager& resourceManager, std::shared_ptr<Character> character1, std::shared_ptr<Character> character2)
-	: Scene(resourceManager), m_character1(character1), m_character2(character2)
+CombatScene::CombatScene(ResourceManager& resourceManager, InputManager& inputManager, std::shared_ptr<Character> character1, std::shared_ptr<Character> character2)
+	: Scene(resourceManager, inputManager), m_character1(character1), m_character2(character2)
 { }
 CombatScene::~CombatScene()
 { }

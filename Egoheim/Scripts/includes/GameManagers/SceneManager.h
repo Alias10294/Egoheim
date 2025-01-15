@@ -9,7 +9,7 @@ public:
 	SceneManager();
 	~SceneManager();
 
-	void Init(ResourceManager& resourceManager);
+	void Init(ResourceManager& resourceManager, InputManager& inputManager);
 	void Quit();
 
 	void RunScene(SDL_Renderer* renderer);

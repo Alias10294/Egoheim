@@ -9,9 +9,9 @@ SceneManager::~SceneManager()
 	Quit();
 }
 
-void SceneManager::Init(ResourceManager& resourceManager)
+void SceneManager::Init(ResourceManager& resourceManager, InputManager& inputManager)
 {
-	scenes[0] = (Scene*)new StartScene(resourceManager);
+	scenes[0] = (Scene*)new StartScene(resourceManager, inputManager);
 }
 void SceneManager::Quit()
 {

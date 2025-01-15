@@ -11,7 +11,7 @@ private:
 	const std::shared_ptr<Character> m_character2;
 
 public:
-	CombatScene(ResourceManager& resourceManager, std::shared_ptr<Character> character1, std::shared_ptr<Character> character2);
+	CombatScene(ResourceManager& resourceManager, InputManager& inputManager, std::shared_ptr<Character> character1, std::shared_ptr<Character> character2);
 	~CombatScene();
 
 	virtual void Init(SDL_Renderer* renderer) override;

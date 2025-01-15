@@ -3,13 +3,14 @@
 #include <SDL2/SDL_image.h>
 #include "../Utils/Font.h"
 #include "../GameManagers/ResourceManager.h"
+#include "../GameManagers/InputManager.h"
 
 constexpr int FPS_LIMIT = 60;
 
 class Scene
 {
 public:
-	Scene(ResourceManager& resourceManager);
+	Scene(ResourceManager& resourceManager, InputManager& inputManager);
 	virtual ~Scene() = default;
 
 	virtual void Init(SDL_Renderer* renderer) = 0;
@@ -24,6 +25,7 @@ public:
 
 protected:
 	ResourceManager& m_resourceManager;
+	InputManager& m_inputManager;
 
 	bool m_isRunning = false;
 

@@ -3,8 +3,8 @@
 #include <random>
 #include <format>
 
-StartScene::StartScene(ResourceManager& resourceManager)
-	: Scene(resourceManager), m_background(nullptr), m_buttonBackground(nullptr), m_startButtons()
+StartScene::StartScene(ResourceManager& resourceManager, InputManager& inputManager)
+	: Scene(resourceManager, inputManager), m_background(nullptr), m_buttonBackground(nullptr), m_startButtons()
 { }
 StartScene::~StartScene()
 {

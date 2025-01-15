@@ -55,7 +55,8 @@ Game::Game()
 		"BigFont");
 
 	m_resourceManager.Init(m_renderer);
-	m_sceneManager.Init(m_resourceManager);
+	m_inputManager.Init();
+	m_sceneManager.Init(m_resourceManager, m_inputManager);
 }
 Game::~Game()
 {
