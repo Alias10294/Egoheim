@@ -4,11 +4,12 @@
 
 TextButton::TextButton(
 	SDL_Texture* textures, 
-	AnimatedTextureInfo textureInfo, 
+	const int nbFrames,
+	const float* frameTimes,
 	const char* text, 
 	SDL_Rect rect, 
 	std::function<void()> onClick)
-	: Button(textures, textureInfo, rect, onClick), m_text(text), m_textRect{ NULL, NULL, NULL, NULL }
+	: Button(textures, nbFrames, frameTimes, rect, onClick), m_text(text), m_textRect{ NULL, NULL, NULL, NULL }
 {
 	const WindowCoeffs windowCoeffs = Game::GetWindowCoeffs();
 

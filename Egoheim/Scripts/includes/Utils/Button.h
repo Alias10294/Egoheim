@@ -8,7 +8,12 @@
 class Button
 {
 public:
-	Button(SDL_Texture* textures, AnimatedTextureInfo textureInfo, SDL_Rect rect, std::function<void()> onClick = nullptr);
+	Button(
+		SDL_Texture* textures, 
+		const int nbFrames, 
+		const float* frameTimes, 
+		SDL_Rect rect, 
+		std::function<void()> onClick = nullptr);
 	virtual ~Button();
 
 	virtual void HandleEvents(const SDL_Event& event);

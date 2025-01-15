@@ -9,7 +9,8 @@ class ImageButton : public Button
 public:
 	ImageButton(
 		SDL_Texture* textures,
-		AnimatedTextureInfo textureInfo,
+		const int nbFrames,
+		const float* frameTimes,
 		SDL_Texture* image,
 		SDL_Rect rect,
 		std::function<void()> onClick);

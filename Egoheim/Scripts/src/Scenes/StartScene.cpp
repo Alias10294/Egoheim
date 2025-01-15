@@ -44,12 +44,12 @@ void StartScene::Init(SDL_Renderer* renderer)
 	{
 		std::cerr << "Error on background loading." << IMG_GetError() << std::endl;
 	}
-	AnimatedTextureInfo startButtonTextureInfo = { STARTBUTTON_NBFRAMES, STARTBUTTON_FRAMETIMES };
 	for (int i = 0; i < 4; i++)
 	{
 		m_startButtons[i] = new TextButton(
 			m_buttonBackground,
-			startButtonTextureInfo,
+			STARTBUTTON_NBFRAMES, 
+			STARTBUTTON_FRAMETIMES, 
 			STARTBUTTON_TEXTS[i],
 			{ STARTBUTTON_X, STARTBUTTON_Y + i * STARTBUTTON_SPACE,  STARTBUTTON_W, STARTBUTTON_H }, 
 			[this]() { this->Quit(); });

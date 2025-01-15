@@ -21,7 +21,6 @@
   <ItemGroup>
     <ClInclude Include="Scripts\includes\GameManagers\InputManager.h" />
     <ClInclude Include="Scripts\includes\Utils\AnimatedTexture.h" />
-    <ClInclude Include="Scripts\includes\Utils\AnimatedTextureInfo.h" />
     <ClInclude Include="Scripts\includes\Utils\Font.h" />
     <ClInclude Include="Scripts\includes\CombatElements\CharacterElements\Character.h" />
     <ClInclude Include="Scripts\includes\CombatElements\CharacterElements\Health.h" />

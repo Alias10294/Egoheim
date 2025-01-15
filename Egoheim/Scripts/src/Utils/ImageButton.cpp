@@ -3,11 +3,12 @@
 
 ImageButton::ImageButton(
 	SDL_Texture* textures, 
-	AnimatedTextureInfo textureInfo, 
+	const int nbFrames,
+	const float* frameTimes,
 	SDL_Texture* image, 
 	SDL_Rect rect, 
 	std::function<void()> onClick)
-	: Button(textures, textureInfo, rect, onClick), m_image(image)
+	: Button(textures, nbFrames, frameTimes, rect, onClick), m_image(image)
 {
 	SDL_QueryTexture(image, NULL, NULL, &m_imageRect.w, &m_imageRect.h);
 	const WindowCoeffs windowCoeffs = Game::GetWindowCoeffs();

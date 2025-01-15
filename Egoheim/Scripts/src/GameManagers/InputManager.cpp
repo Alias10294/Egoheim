@@ -3,7 +3,7 @@
 InputManager::InputManager()
 	: m_mouseX(0), m_mouseY(0), m_mouseWheelDelta(0)
 {
-	for (int i = 0; i < NUM_SCANCODES; i++)
+	for (int i = 0; i < NB_SCANCODES; i++)
 	{
 		m_currentKeyStates[i] = false;
 		m_previousKeyStates[i] = false;
@@ -73,7 +73,7 @@ void InputManager::HandleEvent(SDL_Event& event)
 }
 void InputManager::UpdatePreviousStates()
 {
-	for (int i = 0; i < NUM_SCANCODES; i++)
+	for (int i = 0; i < NB_SCANCODES; i++)
 		m_previousKeyStates[i] = m_currentKeyStates[i];
 	for (int i = 0; i < NB_MOUSE_BUTTONS; i++)
 		m_previousMouseButtonStates[i] = m_currentMouseButtonStates[i];

@@ -57,9 +57,6 @@
     <ClInclude Include="Scripts\includes\Utils\WindowCoeffs.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Scripts\includes\Utils\AnimatedTextureInfo.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="Scripts\includes\GameManagers\InputManager.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>

@@ -9,7 +9,8 @@ class TextButton : public Button
 public:
 	TextButton(
 		SDL_Texture* textures,
-		AnimatedTextureInfo textureInfo,
+		const int nbFrames,
+		const float* frameTimes,
 		const char* text,
 		SDL_Rect rect,
 		std::function<void()> onClick = nullptr);

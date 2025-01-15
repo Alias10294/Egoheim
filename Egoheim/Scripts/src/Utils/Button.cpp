@@ -2,8 +2,13 @@
 #include "../../includes/Game.h"
 #include <iostream>
 
-Button::Button(SDL_Texture* textures, AnimatedTextureInfo textureInfo, SDL_Rect rect, std::function<void()> onClick)
-	: m_texture(textures, textureInfo), m_onClick(onClick)
+Button::Button(
+	SDL_Texture* textures, 
+	const int nbFrames, 
+	const float* frameTimes, 
+	SDL_Rect rect, 
+	std::function<void()> onClick)
+	: m_texture(textures, nbFrames, frameTimes), m_onClick(onClick)
 {
 	const WindowCoeffs windowCoeffs = Game::GetWindowCoeffs();
 	m_rect = SDL_Rect

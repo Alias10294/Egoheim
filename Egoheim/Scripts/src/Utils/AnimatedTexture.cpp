@@ -1,14 +1,14 @@
 #include "../../includes/Utils/AnimatedTexture.h"
 #include "../../includes/Game.h"
 
-AnimatedTexture::AnimatedTexture(SDL_Texture* textures, AnimatedTextureInfo textureInfo, int direction)
+AnimatedTexture::AnimatedTexture(SDL_Texture* textures, const int nbFrames, const float* frameTimes, int direction)
 	: m_textures(textures), m_increment(direction), m_currentFrameInfo{ 0, 0 }
 {
 	SDL_QueryTexture(textures, NULL, NULL, &m_currentRect.w, &m_currentRect.h);
-	m_currentRect.w /= textureInfo.nbFrames;
+	m_currentRect.w /= nbFrames;
 
-	for (int i = 0; i < textureInfo.nbFrames; i++)
-		m_frameTimesMs.emplace_back(textureInfo.frameTimes[i]);
+	for (int i = 0; i < nbFrames; i++)
+		m_frameTimesMs.emplace_back(frameTimes[i]);
 }
 AnimatedTexture::~AnimatedTexture()
 {

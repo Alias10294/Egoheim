@@ -5,7 +5,7 @@
 #include <vector>
 #include <unordered_map>
 
-constexpr const int NUM_SCANCODES = SDL_NUM_SCANCODES;
+constexpr const int NB_SCANCODES = SDL_NUM_SCANCODES;
 constexpr const int NB_MOUSE_BUTTONS = 5;
 constexpr const int NB_CONTROLLERS = 2;
 
@@ -47,8 +47,8 @@ private:
     void HandleControllerButtonEvent(const SDL_ControllerButtonEvent& cbuttonEvent);
     void HandleControllerAxisEvent(const SDL_ControllerAxisEvent& caxisEvent);
 
-    bool m_currentKeyStates[NUM_SCANCODES];
-    bool m_previousKeyStates[NUM_SCANCODES];
+    bool m_currentKeyStates[NB_SCANCODES];
+    bool m_previousKeyStates[NB_SCANCODES];
 
     bool m_currentMouseButtonStates[NB_MOUSE_BUTTONS];
     bool m_previousMouseButtonStates[NB_MOUSE_BUTTONS];

@@ -4,12 +4,11 @@
 #include <SDL2/SDL.h>
 #include <iostream>
 #include <vector>
-#include "AnimatedTextureInfo.h"
 
 class AnimatedTexture
 {
 public:
-	AnimatedTexture(SDL_Texture* textures, AnimatedTextureInfo textureInfo, int direction = 1);
+	AnimatedTexture(SDL_Texture* textures, const int nbFrames, const float* frameTimes, int direction = 1);
 	virtual ~AnimatedTexture();
 
 	void Update(const uint32_t deltaTimeMs);
