@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Scripts\includes\EventHandling\Input.h" />
+    <ClInclude Include="Scripts\includes\EventHandling\InputAction.h" />
     <ClInclude Include="Scripts\includes\EventHandling\InputConfiguration.h" />
     <ClInclude Include="Scripts\includes\EventHandling\InputManager.h" />
     <ClInclude Include="Scripts\includes\Utils\AnimatedTexture.h" />
@@ -40,7 +40,6 @@
   <ItemGroup>
     <ClCompile Include="Scripts\includes\GameManagers\ResourceManager.h" />
     <ClCompile Include="Scripts\includes\Utils\ImageButton.h" />
-    <ClCompile Include="Scripts\src\EventHandling\Input.cpp" />
     <ClCompile Include="Scripts\src\EventHandling\InputConfiguration.cpp" />
     <ClCompile Include="Scripts\src\EventHandling\InputManager.cpp" />
     <ClCompile Include="Scripts\src\GameManagers\ResourceManager.cpp" />

@@ -1,0 +1,19 @@
+#ifndef INPUTACTION_H
+#define INPUTACTION_H
+
+enum class InputAction
+{
+	INPUT_ACTION_MIN, 
+	MOVE_UP, 
+	MOVE_DOWN, 
+	MOVE_LEFT, 
+	MOVE_RIGHT, 
+	DODGE, 
+	ATTACK, 
+	PARRY, 
+	ABILITY_1, 
+	ABILITY_2, 
+	INPUT_ACTION_MAX 
+};
+
+#endif INPUTACTION_H

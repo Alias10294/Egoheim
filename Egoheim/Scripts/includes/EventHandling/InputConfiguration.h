@@ -2,11 +2,11 @@
 #define INPUTCONFIGURATION_H
 
 #include <SDL2/SDL.h>
+#include <variant>
 #include <unordered_map>
-#include "Input.h"
+#include "InputAction.h"
 
-constexpr const int NB_ACTIONS = 1;
-constexpr const int MAX_POSSIBLE_BINDINGS = 2;
+typedef std::variant<SDL_GameControllerAxis, SDL_GameControllerButton> GameControllerControl;
 
 class InputConfiguration
 {
@@ -14,20 +14,11 @@ public:
 	InputConfiguration();
 	~InputConfiguration();
 
-private:
-	std::unordered_map<const char*, Input> configuration;
-	const struct Action
-	{
-		const char* actionName;
-		const struct PossibleBindings
-		{
-			SDL_EventType controller[MAX_POSSIBLE_BINDINGS];
-			SDL_EventType desktop[MAX_POSSIBLE_BINDINGS];
-		} 
-		possibleBindings;
-	} 
-	actions[NB_ACTIONS];
+	void SetToDefault();
+	void SetBinding(InputAction inputAction, GameControllerControl gameControllerControl);
 
+private:
+	std::unordered_map<InputAction, GameControllerControl> m_bindings;
 };
 
 #endif INPUTCONFIGURATION_H

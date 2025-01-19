@@ -63,7 +63,7 @@
     <ClInclude Include="Scripts\includes\EventHandling\InputConfiguration.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Scripts\includes\EventHandling\Input.h">
+    <ClInclude Include="Scripts\includes\EventHandling\InputAction.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
@@ -126,9 +126,6 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Scripts\src\EventHandling\InputConfiguration.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Scripts\src\EventHandling\Input.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
