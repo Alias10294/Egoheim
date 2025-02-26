@@ -1,0 +1,130 @@
+{
+    "MENU": {
+        "default": {
+            "MOVE_UP": [
+                {
+                    "input-type": "key",
+                    "input-value": 82
+                },
+                {
+                    "input-type": "key",
+                    "input-value": 26
+                }
+            ],
+            "MOVE_DOWN": [
+                {
+                    "input-type": "key",
+                    "input-value": 81
+                },
+                {
+                    "input-type": "key",
+                    "input-value": 22
+                }
+            ],
+            "MOVE_LEFT": [
+                {
+                    "input-type": "key",
+                    "input-value": 80
+                },
+                {
+                    "input-type": "key",
+                    "input-value": 4
+                }
+            ],
+            "MOVE_RIGHT": [
+                {
+                    "input-type": "key",
+                    "input-value": 79
+                },
+                {
+                    "input-type": "key",
+                    "input-value": 7
+                }
+            ],
+            "CLICK": [
+                {
+                    "input-type": "mouse-button",
+                    "input-value": 1
+                },
+                {
+                    "input-type": "key",
+                    "input-value": 40
+                },
+                {
+                    "input-type": "key",
+                    "input-value": 44
+                }
+            ],
+            "BACK": [
+                {
+                    "input-type": "key",
+                    "input-value": 41
+                }
+            ]
+        }
+    },
+    "COMBAT": {
+        "default": {
+            "MOVE_UP": [
+                {
+                    "input-type": "key",
+                    "input-value": 26
+                }
+            ],
+            "MOVE_DOWN": [
+                {
+                    "input-type": "key",
+                    "input-value": 22
+                }
+            ],
+            "MOVE_LEFT": [
+                {
+                    "input-type": "key",
+                    "input-value": 4
+                }
+            ],
+            "MOVE_RIGHT": [
+                {
+                    "input-type": "key",
+                    "input-value": 7
+                }
+            ],
+            "DODGE": [
+                {
+                    "input-type": "key",
+                    "input-value": 44
+                }
+            ],
+            "ATTACK": [
+                {
+                    "input-type": "mouse-button",
+                    "input-value": 1
+                }
+            ],
+            "PARRY": [
+                {
+                    "input-type": "mouse-button",
+                    "input-value": 3
+                }
+            ],
+            "LABILITY": [
+                {
+                    "input-type": "key",
+                    "input-value": 20
+                }
+            ],
+            "RABILITY": [
+                {
+                    "input-type": "key",
+                    "input-value": 8
+                }
+            ],
+            "PAUSE": [
+                {
+                    "input-type": "key",
+                    "input-value": 41
+                }
+            ]
+        }
+    }
+}

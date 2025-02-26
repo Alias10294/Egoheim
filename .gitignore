@@ -1,0 +1,19 @@
+.vscode/
+
+# Ignorer les répertoires de code des sous-projets mais pas les fichiers .wrap
+/subprojects/*
+!/subprojects/*.wrap
+
+# Ignorer les fichiers générés par Meson
+build/
+builddir/
+meson-logs/
+meson-private/
+meson-info/
+
+# Ignorer les fichiers spécifiques aux dépendances
+subprojects/sdl2/
+subprojects/nlohmann_json/
+
+# Ignorer les fichiers de cache des dépendances
+subprojects/packagecache/
