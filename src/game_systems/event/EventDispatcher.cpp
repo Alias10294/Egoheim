@@ -13,19 +13,14 @@ void EventDispatcher::Unsubscribe(const SubscriptionToken& token)
         return;
     
     auto& subscriptions = typeIt->second;
-    auto subIt = std::remove_if
+    std::erase_if
     (
-        subscriptions.begin(), 
-        subscriptions.end(), 
+        m_subscriptions, 
         [token](const std::unique_ptr<ISubscription>& subscription)
         {
             return subscription->GetId() == token.index;
         }
     );
-    if (subIt == subscriptions.end())
-        return;
-    
-    subscriptions.erase(subIt, subscriptions.end());
 }
 
 void EventDispatcher::Dispatch(const Event& event) const

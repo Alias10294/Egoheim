@@ -33,7 +33,7 @@ public:
         const SubscriptionToken token = 
         { 
             std::type_index(typeid(EventType)), 
-            m_subscriptionCount++ 
+            m_subscriptionCount 
         };
         auto subscription = std::make_unique<Subscription<EventType>>(filter, callback, m_subscriptionCount++);
         m_subscriptions[token.typeIndex].push_back(subscription);
@@ -62,7 +62,7 @@ private:
     {
     public:
         Subscription(Filter<EventType> filter, Callback<EventType> callback, const std::size_t id)
-          : m_id(id), p_filter(std::move(filter)), p_callback(std::move(callback))
+          : m_id(id), m_filter(std::move(filter)), m_callback(std::move(callback))
         { }
         ~Subscription()
         { }
@@ -75,20 +75,20 @@ private:
         [[nodiscard]] virtual bool IsFilter(const Event& event) const override
         {
             if (const auto& specificEvent = std::get_if<EventType>(&event))
-                return p_filter(*specificEvent);
+                return m_filter(*specificEvent);
             return false;
         }
         virtual void OnCallback(const Event& event) const override
         {
             if (const auto& specificEvent = std::get_if<EventType>(&event))
-                p_callback(*specificEvent);
+                m_callback(*specificEvent);
         }
     
     private:
         const std::size_t m_id; 
 
-        Filter<EventType> p_filter;
-        Callback<EventType> p_callback;
+        Filter<EventType> m_filter;
+        Callback<EventType> m_callback;
     };
     
     std::unordered_map<std::type_index, std::vector<std::unique_ptr<ISubscription>>> m_subscriptions;
