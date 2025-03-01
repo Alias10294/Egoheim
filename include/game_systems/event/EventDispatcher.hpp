@@ -12,8 +12,7 @@
 
 class EventDispatcher
 {
-public:
-    EventDispatcher(); 
+public: 
     ~EventDispatcher(); 
 
     template<typename EventType> 
@@ -91,8 +90,8 @@ private:
         Callback<EventType> m_callback;
     };
     
-    std::unordered_map<std::type_index, std::vector<std::unique_ptr<ISubscription>>> m_subscriptions;
-    std::size_t m_subscriptionCount;
+    std::unordered_map<std::type_index, std::vector<std::unique_ptr<ISubscription>>> m_subscriptions{};
+    std::size_t m_subscriptionCount{0};
 
 };
 
