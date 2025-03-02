@@ -24,14 +24,13 @@ struct DesktopInput
 class DesktopInputConfig
 {
 public:
-    DesktopInputConfig();
     ~DesktopInputConfig();
 
     bool Load(const std::string& config, const InputContext context);
     bool Save(const std::string& config, const InputContext context);
 
 private:
-    std::map<InputContext, std::map<InputAction, std::vector<DesktopInput>>> m_bindings;
+    std::map<InputContext, std::map<InputAction, std::vector<DesktopInput>>> m_bindings{};
 };
 
 #endif

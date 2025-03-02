@@ -1,13 +1,13 @@
 #include <fstream>
 #include <string>
 
-#include "DesktopInputConfig.hpp"
+#include "ControllerInputConfig.hpp"
 #include "nlohmann/json.hpp"
 
-DesktopInputConfig::~DesktopInputConfig()
+ControllerInputConfig::~ControllerInputConfig()
 {}
 
-bool DesktopInputConfig::Load(const std::string& config, const InputContext context)
+bool ControllerInputConfig::Load(const std::string& config, const InputContext context)
 {
     std::ifstream file("desktop-input-config.json");
     if (!file.is_open())
@@ -37,10 +37,9 @@ bool DesktopInputConfig::Load(const std::string& config, const InputContext cont
             if (input.find("input-value") == input.end()) continue;
             
             const std::string inputTypeStr = input["input-type"].get<std::string>();
-            DesktopInputType inputType;
-            if      (inputTypeStr == "key")          inputType = DesktopInputType::KEY;
-            else if (inputTypeStr == "mouse-button") inputType = DesktopInputType::MOUSEBUTTON;
-            else if (inputTypeStr == "mouse-wheel")  inputType = DesktopInputType::MOUSEWHEEL;
+            ControllerInputType inputType;
+            if      (inputTypeStr == "button") inputType = ControllerInputType::BUTTON;
+            else if (inputTypeStr == "axis")   inputType = ControllerInputType::AXIS;
             
             long inputValue = 0;
             if      (input["input-value"].is_number()) inputValue = input["input-value"].get<long>();
@@ -51,9 +50,9 @@ bool DesktopInputConfig::Load(const std::string& config, const InputContext cont
     }
     return true;
 }
-bool DesktopInputConfig::Save(const std::string& config, const InputContext context)
+bool ControllerInputConfig::Save(const std::string& config, const InputContext context)
 {
-    std::ifstream inFile("desktop-input-config.json");
+    std::ifstream inFile("controller-input-config.json");
     if (!inFile.is_open())
         return false;
     
@@ -72,15 +71,14 @@ bool DesktopInputConfig::Save(const std::string& config, const InputContext cont
     {
         const std::string actionStr = InputActionToString(bindings.first);
         jBindings[contextStr][config][actionStr] = nlohmann::json::array();
-        for (DesktopInput input : bindings.second)
+        for (ControllerInput input : bindings.second)
         {
             nlohmann::json jInput;
             std::string inputTypeStr;
             switch (input.type)
             {
-            case DesktopInputType::KEY:         inputTypeStr = "key"; break;
-            case DesktopInputType::MOUSEBUTTON: inputTypeStr = "mouse-button"; break;
-            case DesktopInputType::MOUSEWHEEL:  inputTypeStr = "mouse-wheel"; break;
+            case ControllerInputType::BUTTON: inputTypeStr = "button"; break;
+            case ControllerInputType::AXIS:   inputTypeStr = "axis"; break;
             
             default:                            inputTypeStr = ""; break;
             }
@@ -92,7 +90,7 @@ bool DesktopInputConfig::Save(const std::string& config, const InputContext cont
         }
     }
 
-    std::ofstream outFile("desktop-input-config.json");
+    std::ofstream outFile("controller-input-config.json");
     if (!outFile.is_open())
         return false;
     

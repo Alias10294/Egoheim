@@ -2,9 +2,11 @@
 #define INPUTMANAGER_HPP
 
 #include "SDL.h"
+#include "../event/EventDispatcher.hpp"
 #include "DesktopState.hpp"
 #include "ControllerState.hpp"
-#include "../event/EventDispatcher.hpp"
+#include "DesktopInputConfig.hpp"
+#include "ControllerInputConfig.hpp"
 
 constexpr std::size_t NBMAX_CONTROLLERS = 2;
 
@@ -21,6 +23,9 @@ private:
 
     DesktopState m_desktopState;
     std::array<ControllerState, NBMAX_CONTROLLERS> m_controllerStates;
+
+    DesktopInputConfig m_desktopConfig;
+    std::array<ControllerInputConfig, NBMAX_CONTROLLERS> m_controllerConfigs;
 };
 
 #endif

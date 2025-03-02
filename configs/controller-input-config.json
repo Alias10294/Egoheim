@@ -1,0 +1,100 @@
+{
+    "MENU": {
+        "default": {
+            "MOVE_UP": [
+                {
+                    "input-type": "button", 
+                    "input-value": 11
+                }
+            ], 
+            "MOVE_DOWN": [
+                {
+                    "input-type": "button", 
+                    "input-value": 12
+                }
+            ], 
+            "MOVE_LEFT": [
+                {
+                    "input-type": "button", 
+                    "input-value": 13
+                }
+            ], 
+            "MOVE_RIGHT": [
+                {
+                    "input-type": "button", 
+                    "input-value": 14
+                }
+            ], 
+            "CLICK": [
+                {
+                    "input-type": "button", 
+                    "input-value": 0
+                }
+            ], 
+            "BACK": [
+                {
+                    "input-type": "button", 
+                    "input-value": 1
+                }
+            ]
+        }
+    }, 
+    "COMBAT": {
+        "default": {
+            "MOVE_UP": [
+                {
+                    "input-type": "axis", 
+                    "input-value": 1
+                }
+            ], 
+            "MOVE_DOWN": [
+                {
+                    "input-type": "axis", 
+                    "input-value": 1
+                }
+            ], 
+            "MOVE_LEFT": [
+                {
+                    "input-type": "axis", 
+                    "input-value": 0
+                }
+            ], 
+            "MOVE_RIGHT": [
+                {
+                    "input-type": "axis", 
+                    "input-value": 0
+                }
+            ], 
+            "ATTACK": [
+                {
+                    "input-type": "axis", 
+                    "input-value": 5
+                }
+            ],
+            "PARRY": [
+                {
+                    "input-type": "axis", 
+                    "input-value": 4
+                }
+            ], 
+            "LABILITY": [
+                {
+                    "input-type": "button", 
+                    "input-value": 9
+                }
+            ],
+            "RABILITY": [
+                {
+                    "input-type": "button", 
+                    "input-value": 10
+                }
+            ], 
+            "PAUSE": [
+                {
+                    "input-type": "button", 
+                    "input-value": 6
+                }
+            ]
+        }
+    }
+}

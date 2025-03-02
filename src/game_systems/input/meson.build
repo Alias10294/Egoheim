@@ -1,4 +1,4 @@
-game_systems_input_files = ['DesktopInputConfig.cpp', 'InputManager.cpp']
+game_systems_input_files = ['ControllerInputConfig.cpp', 'DesktopInputConfig.cpp', 'InputManager.cpp']
 
 game_systems_input_lib = static_library(
     'game_systems_input_lib', 

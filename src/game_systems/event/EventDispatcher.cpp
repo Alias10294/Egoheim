@@ -1,8 +1,5 @@
 #include "EventDispatcher.hpp"
 
-EventDispatcher::EventDispatcher()
-    : m_subscriptions()
-{}
 EventDispatcher::~EventDispatcher()
 {}
 
@@ -13,14 +10,19 @@ void EventDispatcher::Unsubscribe(const SubscriptionToken& token)
         return;
     
     auto& subscriptions = typeIt->second;
-    std::erase_if
+    auto subIt = std::remove_if
     (
-        m_subscriptions, 
+        subscriptions.begin(), 
+        subscriptions.end(), 
         [token](const std::unique_ptr<ISubscription>& subscription)
         {
             return subscription->GetId() == token.index;
         }
     );
+    if (subIt == subscriptions.end())
+        return;
+    
+    subscriptions.erase(subIt, subscriptions.end());
 }
 
 void EventDispatcher::Dispatch(const Event& event) const
