@@ -7,7 +7,7 @@
 DesktopInputConfig::~DesktopInputConfig()
 {}
 
-const InputAction DesktopInputConfig::GetActionFromScancode(const InputContext context, SDL_Scancode scancode) const
+const InputAction DesktopInputConfig::GetActionFromScancode(const InputContext context, const SDL_Scancode scancode) const
 {
     for (auto& bindings : m_bindings.at(context))
     {
@@ -15,7 +15,7 @@ const InputAction DesktopInputConfig::GetActionFromScancode(const InputContext c
         (
             bindings.second.begin(), 
             bindings.second.end(), 
-            [](const DesktopInput& input)
+            [scancode](const DesktopInput& input)
             {
                 return input.value == static_cast<long>(scancode);
             }
@@ -25,7 +25,7 @@ const InputAction DesktopInputConfig::GetActionFromScancode(const InputContext c
     }
     return InputAction::INPUTACTION_MAX;
 }
-const InputAction DesktopInputConfig::GetActionFromMouseButton(const InputContext context, Uint8 mouseButton) const
+const InputAction DesktopInputConfig::GetActionFromMouseButton(const InputContext context, const Uint8 mouseButton) const
 {
     for (auto& bindings : m_bindings.at(context))
     {
@@ -33,7 +33,7 @@ const InputAction DesktopInputConfig::GetActionFromMouseButton(const InputContex
         (
             bindings.second.begin(), 
             bindings.second.end(), 
-            [](const DesktopInput& input)
+            [mouseButton](const DesktopInput& input)
             {
                 return input.value == static_cast<long>(mouseButton);
             }

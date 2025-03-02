@@ -26,8 +26,8 @@ class DesktopInputConfig
 public:
     ~DesktopInputConfig();
     
-    [[nodiscard]] const InputAction GetActionFromScancode(const InputContext context, SDL_Scancode scancode) const;
-    [[nodiscard]] const InputAction GetActionFromMouseButton(const InputContext context, Uint8 mouseButton) const;
+    [[nodiscard]] const InputAction GetActionFromScancode(const InputContext context, const SDL_Scancode scancode) const;
+    [[nodiscard]] const InputAction GetActionFromMouseButton(const InputContext context, const Uint8 mouseButton) const;
 
     const bool Load(const std::string& config, const InputContext context);
     const bool Save(const std::string& config, const InputContext context) const;

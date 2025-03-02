@@ -7,10 +7,42 @@
 ControllerInputConfig::~ControllerInputConfig()
 {}
 
-const InputAction ControllerInputConfig::GetActionFromButton(const InputContext context, SDL_GameControllerButton button) const
-{}
-const InputAction ControllerInputConfig::GetActionFromAxis(const InputContext context, SDL_GameControllerAxis axis, unsigned short value) const
-{}
+const InputAction ControllerInputConfig::GetActionFromButton(const InputContext context, const SDL_GameControllerButton button) const
+{
+    for (auto& bindings : m_bindings.at(context))
+    {
+        auto it = std::find_if
+        (
+            bindings.second.begin(), 
+            bindings.second.end(), 
+            [button](const ControllerInput& input)
+            {
+                return input.value == static_cast<long>(button);
+            }
+        );
+        if (it != bindings.second.end())
+            return bindings.first;
+    }
+    return InputAction::INPUTACTION_MAX;
+}
+const InputAction ControllerInputConfig::GetActionFromAxis(const InputContext context, const SDL_GameControllerAxis axis, const unsigned short value) const
+{
+    for (auto& bindings : m_bindings.at(context))
+    {
+        auto it = std::find_if
+        (
+            bindings.second.begin(), 
+            bindings.second.end(), 
+            [axis](const ControllerInput& input)
+            {
+                return input.value == static_cast<long>(axis);
+            }
+        );
+        if (it != bindings.second.end())
+            return GetActualAction(bindings.first, value);
+    }
+    return InputAction::INPUTACTION_MAX;
+}
 
 const bool ControllerInputConfig::Load(const std::string& config, const InputContext context)
 {
@@ -103,4 +135,22 @@ const bool ControllerInputConfig::Save(const std::string& config, const InputCon
     outFile.close();
 
     return true;
+}
+
+const InputAction ControllerInputConfig::GetActualAction(const InputAction action, const unsigned short value) const
+{
+    if (std::abs(static_cast<int>(value)) < 8000) 
+        return InputAction::INPUTACTION_MAX;
+    
+    switch (action)
+    {
+    case InputAction::MOVE_UP:
+    case InputAction::MOVE_DOWN:
+        return (value > 0) ? InputAction::MOVE_UP : InputAction::MOVE_DOWN;
+    case InputAction::MOVE_LEFT:
+    case InputAction::MOVE_RIGHT:
+        return (value > 0) ? InputAction::MOVE_RIGHT : InputAction::MOVE_LEFT;
+    default:
+        return action;
+    }
 }
