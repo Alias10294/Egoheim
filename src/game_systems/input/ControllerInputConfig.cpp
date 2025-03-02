@@ -7,7 +7,12 @@
 ControllerInputConfig::~ControllerInputConfig()
 {}
 
-bool ControllerInputConfig::Load(const std::string& config, const InputContext context)
+const InputAction ControllerInputConfig::GetActionFromButton(const InputContext context, SDL_GameControllerButton button) const
+{}
+const InputAction ControllerInputConfig::GetActionFromAxis(const InputContext context, SDL_GameControllerAxis axis, unsigned short value) const
+{}
+
+const bool ControllerInputConfig::Load(const std::string& config, const InputContext context)
 {
     std::ifstream file("desktop-input-config.json");
     if (!file.is_open())
@@ -50,7 +55,7 @@ bool ControllerInputConfig::Load(const std::string& config, const InputContext c
     }
     return true;
 }
-bool ControllerInputConfig::Save(const std::string& config, const InputContext context)
+const bool ControllerInputConfig::Save(const std::string& config, const InputContext context) const
 {
     std::ifstream inFile("controller-input-config.json");
     if (!inFile.is_open())
@@ -67,7 +72,7 @@ bool ControllerInputConfig::Save(const std::string& config, const InputContext c
     if (jBindings[contextStr].find(config) != jBindings[contextStr].end())
         jBindings[contextStr][config] = nlohmann::json::object();
     
-    for (auto& bindings : m_bindings[context])
+    for (auto& bindings : m_bindings.at(context))
     {
         const std::string actionStr = InputActionToString(bindings.first);
         jBindings[contextStr][config][actionStr] = nlohmann::json::array();

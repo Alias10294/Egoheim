@@ -7,7 +7,44 @@
 DesktopInputConfig::~DesktopInputConfig()
 {}
 
-bool DesktopInputConfig::Load(const std::string& config, const InputContext context)
+const InputAction DesktopInputConfig::GetActionFromScancode(const InputContext context, SDL_Scancode scancode) const
+{
+    for (auto& bindings : m_bindings.at(context))
+    {
+        auto it = std::find_if
+        (
+            bindings.second.begin(), 
+            bindings.second.end(), 
+            [](const DesktopInput& input)
+            {
+                return input.value == static_cast<long>(scancode);
+            }
+        );
+        if (it != bindings.second.end())
+            return bindings.first;
+    }
+    return InputAction::INPUTACTION_MAX;
+}
+const InputAction DesktopInputConfig::GetActionFromMouseButton(const InputContext context, Uint8 mouseButton) const
+{
+    for (auto& bindings : m_bindings.at(context))
+    {
+        auto it = std::find_if
+        (
+            bindings.second.begin(), 
+            bindings.second.end(), 
+            [](const DesktopInput& input)
+            {
+                return input.value == static_cast<long>(mouseButton);
+            }
+        );
+        if (it != bindings.second.end())
+            return bindings.first;
+    }
+    return InputAction::INPUTACTION_MAX;
+}
+
+const bool DesktopInputConfig::Load(const std::string& config, const InputContext context)
 {
     std::ifstream file("desktop-input-config.json");
     if (!file.is_open())
@@ -51,7 +88,7 @@ bool DesktopInputConfig::Load(const std::string& config, const InputContext cont
     }
     return true;
 }
-bool DesktopInputConfig::Save(const std::string& config, const InputContext context)
+const bool DesktopInputConfig::Save(const std::string& config, const InputContext context) const
 {
     std::ifstream inFile("desktop-input-config.json");
     if (!inFile.is_open())
@@ -68,7 +105,7 @@ bool DesktopInputConfig::Save(const std::string& config, const InputContext cont
     if (jBindings[contextStr].find(config) != jBindings[contextStr].end())
         jBindings[contextStr][config] = nlohmann::json::object();
     
-    for (auto& bindings : m_bindings[context])
+    for (auto& bindings : m_bindings.at(context))
     {
         const std::string actionStr = InputActionToString(bindings.first);
         jBindings[contextStr][config][actionStr] = nlohmann::json::array();

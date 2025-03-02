@@ -25,9 +25,12 @@ class DesktopInputConfig
 {
 public:
     ~DesktopInputConfig();
+    
+    [[nodiscard]] const InputAction GetActionFromScancode(const InputContext context, SDL_Scancode scancode) const;
+    [[nodiscard]] const InputAction GetActionFromMouseButton(const InputContext context, Uint8 mouseButton) const;
 
-    bool Load(const std::string& config, const InputContext context);
-    bool Save(const std::string& config, const InputContext context);
+    const bool Load(const std::string& config, const InputContext context);
+    const bool Save(const std::string& config, const InputContext context) const;
 
 private:
     std::map<InputContext, std::map<InputAction, std::vector<DesktopInput>>> m_bindings{};

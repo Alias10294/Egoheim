@@ -25,8 +25,11 @@ class ControllerInputConfig
 public:
     ~ControllerInputConfig();
 
-    bool Load(const std::string& config, const InputContext context);
-    bool Save(const std::string& config, const InputContext context);
+    [[nodiscard]] const InputAction GetActionFromButton(const InputContext context, SDL_GameControllerButton button) const;
+    [[nodiscard]] const InputAction GetActionFromAxis(const InputContext context, SDL_GameControllerAxis axis, unsigned short value) const;
+
+    const bool Load(const std::string& config, const InputContext context);
+    const bool Save(const std::string& config, const InputContext context) const;
 
 private:
     std::map<InputContext, std::map<InputAction, std::vector<ControllerInput>>> m_bindings{};
