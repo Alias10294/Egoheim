@@ -1,3 +1,5 @@
+// TO DELETE ONCE INPUTCONFIG IS VERIFIED
+
 #include <fstream>
 #include <string>
 
@@ -52,8 +54,8 @@ const bool ControllerInputConfig::Load(const std::string& config, const InputCon
     
     nlohmann::json jBindings; 
     file >> jBindings; 
-    file.close();
-    m_bindings.clear();
+    file.close(); 
+    m_bindings.clear(); 
 
     const std::string contextStr = InputContextToString(context);
     if (jBindings.find(contextStr) == jBindings.end())

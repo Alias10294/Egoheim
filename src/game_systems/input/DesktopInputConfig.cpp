@@ -1,3 +1,5 @@
+// TO DELETE ONCE INPUTCONFIG IS VERIFIED
+
 #include <fstream>
 #include <string>
 

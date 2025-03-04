@@ -2,8 +2,11 @@
 
 InputManager::InputManager(EventDispatcher& dispatcher)
     : m_dispatcher(dispatcher),
-    m_desktopState(), 
-    m_controllerStates{ ControllerState(), ControllerState() }
+      m_desktopState(), 
+      m_controllerStates{ ControllerState(), ControllerState() }, 
+      m_desktopInputConfig(), 
+      m_controllerInputConfigs{ InputConfig<ControllerInput>(), InputConfig<ControllerInput>() }
+
 { }
 InputManager::~InputManager()
 { }
