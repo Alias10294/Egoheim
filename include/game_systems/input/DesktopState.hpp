@@ -22,7 +22,7 @@ struct MouseState
     Sint32 x = 0;
     Sint32 y = 0;
 
-    Sint32 delta = 0;
+    Sint32 wheelDelta = 0;
 };
 
 struct DesktopState

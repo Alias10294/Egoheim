@@ -56,7 +56,7 @@ public:
         nlohmann::json jBindings; 
         inFile >> jBindings; 
         inFile.close(); 
-        m_bindings.clear(); 
+        m_bindings[context].clear(); 
         
         const std::string contextStr = InputContextToString(context);
         if (jBindings.find(contextStr) == jBindings.end())
@@ -102,11 +102,11 @@ public:
         if (jBindings[contextStr].find(config) != jBindings[contextStr].end())
             jBindings[contextStr][config] = nlohmann::json::object();
         
-        for (auto& bindings : m_bindings.at(context))
+        for (auto& [action, inputs] : m_bindings.at(context))
         {
-            const std::string actionStr = InputActionToString(bindings.first);
+            const std::string actionStr = InputActionToString(action);
             jBindings[contextStr][config][actionStr] = nlohmann::json::array();
-            for (InputType input : bindings.second)
+            for (InputType input : inputs)
             {
                 nlohmann::json jInput;
 
@@ -130,7 +130,20 @@ public:
 private:
     [[nodiscard]] inline const InputAction GetActualAction(const InputAction action, const unsigned short value) const
     {
-        // TODO
+        if (value == 0) return action;
+
+        if (std::abs(static_cast<int>(value)) < 8000) return InputAction::INPUTACTION_MIN;
+    
+        switch (action)
+        {
+        case InputAction::MOVE_UP:    [[fallthrough]]
+        case InputAction::MOVE_DOWN:  return (value > 0) ? InputAction::MOVE_UP : InputAction::MOVE_DOWN;
+
+        case InputAction::MOVE_LEFT:  [[fallthrough]]
+        case InputAction::MOVE_RIGHT: return (value > 0) ? InputAction::MOVE_RIGHT : InputAction::MOVE_LEFT;
+
+        default:                      return action;
+        }
         return InputAction::INPUTACTION_MIN;
     }
     std::unordered_map<InputContext, std::unordered_map<InputAction, std::vector<InputType>>> m_bindings;
