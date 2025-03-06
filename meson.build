@@ -2,15 +2,10 @@ project('Egoheim', 'cpp', default_options: ['cpp_std=c++20'])
 
 # Dependencies
 dep = []
-sdl2 = dependency('sdl2', required: true)
+sdl2 = dependency('sdl2', fallback: ['sdl2', 'sdl2_dep'])
 dep += sdl2
 
-if host_machine.system() == 'windows'
-    sdl2main = dependency('sdl2main', required: true)
-    dep += sdl2main
-endif
-
-nlohmann_json = dependency('nlohmann_json', required: true)
+nlohmann_json = dependency('nlohmann_json', fallback: ['nlohmann_json', 'nlohmann_json_dep'])
 dep += nlohmann_json
 
 # Include directories
@@ -21,7 +16,7 @@ subdir('src')
 
 # Create executable
 executable('egoheim', 'main.cpp', 
-    dependencies: dep, 
+    dependencies: [sdl2, nlohmann_json], 
     include_directories: inc, 
     link_with: [
         src_lib, 

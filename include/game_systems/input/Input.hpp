@@ -33,6 +33,11 @@ public:
         return DerivedInputType::StringToInputEnumImpl(inputEnumStr);
     }
 
+    [[nodiscard]] const long GetValue() const noexcept
+    {
+        return m_value;
+    }
+
 protected:
     InputEnumType m_type; 
     long m_value; 

@@ -2,11 +2,10 @@
 
 Game::Game(const SDLContext& context)
     : m_sdlContext(std::make_unique<SDLContext>(context)), 
+    m_context(InputContext::MENU), 
     m_eventDispatcher(), 
-    m_inputManager(m_eventDispatcher)
-{
-    SDL_Log("game launched\n");
-}
+    m_inputManager(m_context, m_eventDispatcher)
+{}
 Game::~Game()
 {}
 

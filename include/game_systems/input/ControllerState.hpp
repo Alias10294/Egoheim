@@ -16,7 +16,7 @@ struct ControllerState
     std::array<bool, NB_CONTROLLERBUTTONS> current{};
     std::array<bool, NB_CONTROLLERBUTTONS> previous{};
 
-    std::array<unsigned short, NB_CONTROLLERAXES> axisValues{};
+    std::array<short, NB_CONTROLLERAXES> axisValues{};
 };
 
 #endif

@@ -28,7 +28,7 @@ public:
     ~InputConfig() = default;
 
     template<CanBeLong InputId>
-    [[nodiscard]] inline const InputAction GetActionFrom(const InputContext context, const InputId id, const unsigned short value = 0L) const
+    [[nodiscard]] inline const InputAction GetActionFrom(const InputContext context, const InputId id, const short value = 0) const
     {
         for (auto& bindings : m_bindings.at(context))
         {
@@ -38,7 +38,7 @@ public:
                 bindings.second.end(), 
                 [id](const InputType& input)
                 {
-                    return input.value == static_cast<long>(id);
+                    return input.GetValue() == static_cast<long>(id);
                 }
             );
             if (it != bindings.second.end())
@@ -128,7 +128,9 @@ public:
     }
 
 private:
-    [[nodiscard]] inline const InputAction GetActualAction(const InputAction action, const unsigned short value) const
+    std::unordered_map<InputContext, std::unordered_map<InputAction, std::vector<InputType>>> m_bindings;
+
+    [[nodiscard]] inline const InputAction GetActualAction(const InputAction action, const short value = 0) const
     {
         if (value == 0) return action;
 
@@ -136,17 +138,16 @@ private:
     
         switch (action)
         {
-        case InputAction::MOVE_UP:    [[fallthrough]]
+        case InputAction::MOVE_UP: 
         case InputAction::MOVE_DOWN:  return (value > 0) ? InputAction::MOVE_UP : InputAction::MOVE_DOWN;
 
-        case InputAction::MOVE_LEFT:  [[fallthrough]]
+        case InputAction::MOVE_LEFT: 
         case InputAction::MOVE_RIGHT: return (value > 0) ? InputAction::MOVE_RIGHT : InputAction::MOVE_LEFT;
 
         default:                      return action;
         }
         return InputAction::INPUTACTION_MIN;
     }
-    std::unordered_map<InputContext, std::unordered_map<InputAction, std::vector<InputType>>> m_bindings;
 };
 
 #endif

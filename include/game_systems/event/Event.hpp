@@ -18,7 +18,19 @@ struct AxisInputEvent
 {
     int controllerIndex; 
     InputAction action; 
-    short value; 
+    int value; 
+};
+struct CursorMotionInputEvent
+{
+    int controllerIndex;
+    InputAction action = InputAction::CURSOR_MOTION;
+    int x;
+    int y;
+};
+struct DeviceInputEvent
+{
+    int controllerIndex;
+    InputAction action;
 };
 struct RegularInputEvent
 {
@@ -30,7 +42,8 @@ using InputEvent = std::variant
 <
     ButtonInputEvent, 
     AxisInputEvent, 
-    RegularInputEvent 
+    CursorMotionInputEvent, 
+    DeviceInputEvent
 >;
 
 

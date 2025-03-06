@@ -1,4 +1,4 @@
-game_systems_render_files = []
+game_systems_render_files = ['RenderingManager.cpp']
 
 game_systems_render_lib = static_library(
     'game_systems_render_lib', 
