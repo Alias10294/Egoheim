@@ -64,13 +64,7 @@ private:
 
     [[nodiscard]] const ButtonInputEvent TranslateToControllerButtonEvent(const SDL_GameControllerButton button, const int controllerIndex) const noexcept;
     [[nodiscard]] const AxisInputEvent TranslateToControllerAxisEvent(const SDL_GameControllerAxis axis, const int controllerIndex) const noexcept;
-
-    /* TODO: 
-     - finish this class, 
-     - merge develop, 
-     - treat empty library problem 
-     - push in develop, and once checked, in main
-     */
+    
 };
 
 #endif
