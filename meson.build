@@ -8,6 +8,9 @@ dep += sdl2
 nlohmann_json = dependency('nlohmann_json', fallback: ['nlohmann_json', 'nlohmann_json_dep'])
 dep += nlohmann_json
 
+sdl2_image = dependency('sdl2_image', fallback: ['sdl2_image', 'sdl2_image_dep'])
+dep += sdl2_image
+
 # Include directories
 inc = include_directories('include')
 
@@ -16,7 +19,7 @@ subdir('src')
 
 # Create executable
 executable('egoheim', 'main.cpp', 
-    dependencies: [sdl2, nlohmann_json], 
+    dependencies: dep, 
     include_directories: inc, 
     link_with: [
         src_lib, 

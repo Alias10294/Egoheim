@@ -6,7 +6,7 @@ ControllerInput::ControllerInput(const ControllerInputType type, const long valu
 
 const std::string ControllerInput::GetConfigFileImpl()
 {
-    return std::string("controller-input-config.json"); 
+    return std::string("config/input/controller-input-config.json"); 
 }
 
 const std::string ControllerInput::InputEnumToStringImpl(const ControllerInputType type)

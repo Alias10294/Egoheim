@@ -6,7 +6,7 @@ DesktopInput::DesktopInput(const DesktopInputType type, const long value)
 
 const std::string DesktopInput::GetConfigFileImpl()
 {
-    return std::string("desktop-input-config.json"); 
+    return std::string("config/input/desktop-input-config.json"); 
 }
 
 const std::string DesktopInput::InputEnumToStringImpl(const DesktopInputType type)
