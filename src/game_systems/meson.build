@@ -10,5 +10,5 @@ game_systems_lib = static_library(
     'game_systems_lib', 
     game_systems_files, 
     include_directories: [inc, include_directories('../../include/game_systems')], 
-    dependencies: dep,
+    dependencies: dep
 )

@@ -24,7 +24,6 @@ void ResourceManager::LoadTexture(const std::string& texturePath)
     SDL_Texture* texture = IMG_LoadTexture(m_renderer, texturePath.c_str());
     
     m_textures[texturePath] = std::shared_ptr<SDL_Texture>(texture, SDL_DestroyTexture);
-
 }
 
 void ResourceManager::UnloadTexture(const std::string& texturePath)
