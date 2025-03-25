@@ -1,17 +1,19 @@
 #ifndef GAMECONTEXT_HPP
 #define GAMECONTEXT_HPP
 
-#include <memory>
-
 #include "event/EventDispatcher.hpp"
 #include "input/InputManager.hpp"
+#include "render/RenderingManager.hpp"
 #include "resource/ResourceManager.hpp"
+#include "scene/SceneManager.hpp"
 
 struct GameContext
 {
-    std::unique_ptr<EventDispatcher> eventDispatcher;
-    std::unique_ptr<InputManager> inputManager;
-    std::unique_ptr<ResourceManager> resourceManager;
+    EventDispatcher& eventDispatcher;
+    InputManager& inputManager;
+    RenderingManager& renderingManager;
+    ResourceManager& resourceManager;
+    SceneManager& sceneManager;
 };
 
 #endif

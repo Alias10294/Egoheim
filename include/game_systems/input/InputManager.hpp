@@ -17,7 +17,7 @@ public:
     InputManager(InputContext& context, EventDispatcher& dispatcher);
     ~InputManager();
 
-    void ProcessInput();
+    void ProcessInputs();
 
 private:
     InputContext& m_context;

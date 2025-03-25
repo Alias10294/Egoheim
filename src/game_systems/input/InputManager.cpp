@@ -11,7 +11,7 @@ InputManager::InputManager(InputContext& context, EventDispatcher& dispatcher)
 InputManager::~InputManager()
 { }
 
-void InputManager::ProcessInput()
+void InputManager::ProcessInputs()
 { 
     SDL_Event event;
     while (SDL_PollEvent(&event))
